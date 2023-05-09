@@ -1,0 +1,49 @@
+.form-card {
+  background-color: #181a1d !important;
+  border: 1px solid #ffffff;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+input-field {
+  width: 100%;
+  max-width: 300px; // Set the desired max-width for the input fields
+}
+
+.card-title {
+  color: #eb4f2d;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.signup-button {
+  background-color: #007cfa;
+  margin-bottom: 15px;
+  color: #ffffff;
+  transition: opacity 0.3s;
+}
+
+.signup-button:hover {
+  opacity: 0.8;
+}
+
+.error-message {
+  margin-top: 8px;
+  color: #f44336;
+}

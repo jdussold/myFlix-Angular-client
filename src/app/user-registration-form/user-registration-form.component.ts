@@ -1,55 +1,69 @@
-// Importing necessary components and services from Angular Material and our custom FetchApiDataService
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-// Defining the component's selector, template, and styles
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
-  // Declaring userData object and setting its initial values to empty strings
-  @Input() userData: {
-    Username: string;
-    Password: string;
-    Email: string;
-    Birthday: string;
-  } = { Username: '', Password: '', Email: '', Birthday: '' };
+  registrationForm: FormGroup;
 
   constructor(
-    // Injecting FetchApiDataService, MatDialogRef, and MatSnackBar services into the constructor
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar
-  ) {}
-
-  ngOnInit(): void {
-    // Empty ngOnInit method
+    public snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.registrationForm = this.fb.group({
+      Username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.pattern('^[a-zA-Z0-9]+$'),
+        ],
+      ],
+      Password: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
+      Birthday: ['', Validators.required],
+    });
   }
 
+  ngOnInit(): void {}
+
   registerUser(): void {
-    // Destructuring userData object to get the values of Username, Password, Email, and Birthday
-    const { Username, Password, Email, Birthday } = this.userData;
-    // Calling the userRegistration method from FetchApiDataService, passing in the user's registration information
+    const { Username, Password, Email, Birthday } = this.registrationForm.value;
     this.fetchApiData
       .userRegistration({ Username, Password, Email, Birthday })
-      // Subscribing to the response from the server and handling success and error cases
-      .subscribe(
-        (result: string) => {
-          // Closing the dialog window if registration is successful
-          this.dialogRef.close();
-          console.log(result);
-          // Displaying a success message for 2 seconds using the MatSnackBar service
-          this.snackBar.open(result, 'OK', { duration: 2000 });
+      .subscribe({
+        next: (result: any) => {
+          this.fetchApiData.userLogin({ Username, Password }).subscribe({
+            next: (result: any) => {
+              localStorage.setItem('user', JSON.stringify(result.user));
+              localStorage.setItem('token', result.token);
+              this.dialogRef.close();
+              this.snackBar.open('Logged in successfully!', 'OK', {
+                duration: 2000,
+              });
+              this.router.navigate(['movies']);
+            },
+            error: (error: any) => {
+              const errorMessage =
+                error.error.message || 'Unknown error occurred!';
+              this.snackBar.open(errorMessage, 'OK', { duration: 2000 });
+            },
+          });
         },
-        (error: { error: { message: string } }) => {
-          // Handling error cases by displaying the error message (or a default message if none is provided) using the MatSnackBar service
+        error: (error: any) => {
           const errorMessage = error.error.message || 'Unknown error occurred!';
           this.snackBar.open(errorMessage, 'OK', { duration: 2000 });
-        }
-      );
+        },
+      });
   }
 }
