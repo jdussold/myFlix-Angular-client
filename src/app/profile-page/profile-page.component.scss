@@ -1,0 +1,146 @@
+h2 {
+  color: #eb4f2d;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.back-button {
+  margin-top: 10px;
+  color: #007cfa;
+  transition: scale 0.3s;
+}
+
+.back-button:hover {
+  transform: scale(1.2);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  width: 140px;
+}
+
+.profile-value {
+  margin-left: 10px;
+}
+
+.buttons-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-profile-button {
+  background-color: #007cfa !important;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 300px;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.edit-icon {
+  margin-left: 8px;
+  color: #eb4f2d;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.director-name {
+  color: #828282;
+}
+
+.movie-card {
+  width: 270px; /* Add this line */
+  box-sizing: border-box; /* Add this line */
+  flex: 0 0 270px;
+  height: 480px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-color: transparent;
+  position: relative;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-50px);
+  background-color: #181a1d;
+}
+
+.movie-card button {
+  color: #007cfa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: relative;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.movie-card:hover button {
+  opacity: 1;
+}
+
+.favorite-icon {
+  color: #eb4f2d;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie-card:hover .favorite-icon {
+  opacity: 1;
+}
+
+.movie-image {
+  width: 267px;
+  height: 384px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-info {
+  color: #ffffff;
+  text-align: left;
+}
+
+.movie-director {
+  color: #828282;
+  display: inline;
+  margin: 0;
+  font-size: 12px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
