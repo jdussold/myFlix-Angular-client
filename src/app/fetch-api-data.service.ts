@@ -1,6 +1,6 @@
 // Import the necessary modules
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs';
+import { catchError, forkJoin } from 'rxjs';
 import {
   HttpClient,
   HttpHeaders,
@@ -85,8 +85,8 @@ export class FetchApiDataService {
 
   // Method to fetch user details
   getUser(): Observable<any> {
-    const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
     return this.http
       .get(`${apiUrl}/users/${username}`, {
         headers: new HttpHeaders({
@@ -97,26 +97,34 @@ export class FetchApiDataService {
   }
 
   // Method to fetch favorite movies of a user
-  getFavoriteMovies(): Observable<any> {
-    const username = localStorage.getItem('user');
+  getFavoriteMovies(username: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}/users/${username}`, {
+      .get(`${apiUrl}/users/${username}/favorites`, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
+          Authorization: `Bearer ${token}`,
         }),
       })
       .pipe(
-        map(this.extractResponseData),
-        map((data) => data.FavoriteMovies),
+        map((response: any) => {
+          return response;
+        }),
         catchError(this.handleError)
       );
   }
 
   // Method to add a movie to user's favorite list
   addFavoriteMovie(movieId: string): Observable<any> {
-    const username = localStorage.getItem('user');
+    const userJson = localStorage.getItem('user');
+    if (!userJson) {
+      console.error('User object not found in local storage');
+      return throwError('User object not found in local storage');
+    }
+
+    const user = JSON.parse(userJson);
+    const username = user.Username;
     const token = localStorage.getItem('token');
+
     return this.http
       .post(
         `${apiUrl}/users/${username}/movies/${movieId}`,
@@ -130,37 +138,98 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  // Method to edit a user's details
-  editUser(updatedUser: any): Observable<any> {
-    const username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    return this.http
-      .put(`${apiUrl}/users/${username}`, updatedUser, {
-        headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  // Method to delete a user
-  deleteUser(): Observable<any> {
-    const username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    return this.http
-      .delete(`${apiUrl}/users/${username}`, {
-        headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
   // Method to remove a movie from a user's favorite list
   removeFavoriteMovie(movieId: string): Observable<any> {
-    const username = localStorage.getItem('user');
+    const userJson = localStorage.getItem('user');
+    if (!userJson) {
+      console.error('User object not found in local storage');
+      return throwError('User object not found in local storage');
+    }
+
+    const user = JSON.parse(userJson);
+    const username = user.Username;
     const token = localStorage.getItem('token');
+
     return this.http
       .delete(`${apiUrl}/users/${username}/movies/${movieId}`, {
         headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  // Method to edit a user's details
+  editUser(updatedUser: any): Observable<any> {
+    const userJson = localStorage.getItem('user');
+    if (!userJson) {
+      // handle the case where the user object is not found in local storage
+      return throwError('User object not found in local storage');
+    }
+
+    const user = JSON.parse(userJson);
+    if (!user || !user.Username) {
+      // handle the case where the username property is missing or null
+      return throwError('Invalid user object in local storage');
+    }
+
+    const username = user.Username;
+    const token = localStorage.getItem('token');
+    return this.http
+      .put(
+        `${apiUrl}/users/${username}`,
+        {
+          Username: updatedUser.Username,
+          Password: updatedUser.Password,
+          Email: updatedUser.Email,
+          Birthday: updatedUser.Birthday,
+        },
+        {
+          headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
+        }
+      )
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  // Method to delete a user
+  deleteUser(): Observable<any> {
+    const userJson = localStorage.getItem('user');
+    if (!userJson) {
+      console.error('User object not found in local storage');
+      return throwError('User object not found in local storage');
+    }
+
+    const user = JSON.parse(userJson);
+    if (!user || !user.Username) {
+      // handle the case where the username property is missing or null
+      return throwError('Invalid user object in local storage');
+    }
+
+    const username = user.Username;
+    const token = localStorage.getItem('token');
+    return this.http
+      .delete(`${apiUrl}/users/${username}`, {
+        headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
+        responseType: 'text', // Set responseType to 'text'
+        observe: 'response',
+      })
+      .pipe(
+        map((response) => {
+          console.log(response.body); // This will log the message from the server
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  // Method to verify a users password during profile updates
+  verifyPassword(username: string, password: string): Observable<any> {
+    const payload = JSON.stringify({
+      username: username,
+      password: password,
+    });
+    return this.http
+      .post(`${apiUrl}/verify-password`, payload, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .pipe(catchError(this.handleError));
   }
 
   // Method to extract response data from an API response
