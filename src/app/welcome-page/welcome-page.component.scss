@@ -1,0 +1,31 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.blur {
+  filter: blur(5px); /* apply a blur filter when the 'blur' class is applied */
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.button-group {
+  display: flex;
+  gap: 35px;
+}
+
+.button-group button {
+  background-color: #007cfa;
+  transition: opacity 0.3s;
+  margin-top: -175px;
+}
+
+.button-group button:hover {
+  opacity: 0.8;
+}
