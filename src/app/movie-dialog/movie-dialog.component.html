@@ -1,0 +1,19 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">{{ data.title }}</h2>
+  <button class="dialog-close-button" mat-icon-button (click)="onCloseClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <div
+    mat-dialog-content
+    class="backdrop"
+    [style.background-image]="'url(' + data.backdropImage + ')'"
+  >
+    <div class="scroll-container">
+      <p *ngIf="data.genre">
+        <strong>{{ data.genre }}:</strong> {{ data.message }}
+      </p>
+      <p *ngIf="!data.genre">{{ data.message }}</p>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>
