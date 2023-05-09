@@ -1,0 +1,146 @@
+<div class="main-container">
+  <a href="/welcome">
+    <img
+      src="../../assets/images/TextLogo.png"
+      class="logo"
+      alt="my flix logo"
+    />
+  </a>
+  <button
+    mat-button
+    routerLink="/welcome"
+    routerLinkActive="active"
+    class="home-button"
+  >
+    Home
+  </button>
+  <button
+    mat-button
+    routerLink="/profile"
+    routerLinkActive="active"
+    class="profile-button"
+  >
+    Profile
+  </button>
+  <button
+    mat-button
+    (click)="logout()"
+    routerLinkActive="active"
+    class="logout-button"
+  >
+    Log Out
+  </button>
+  <div class="featured-movie-container" *ngIf="featuredMovie">
+    <div
+      class="featured-movie-image"
+      [style.background-image]="'url(' + featuredMovie.BackdropImage + ')'"
+    >
+      <div class="overlay">
+        <div class="featured-movie-content">
+          <div class="title-director">
+            <h3>{{ featuredMovie.Title }}</h3>
+            <p>Directed by: {{ featuredMovie.Director.Name }}</p>
+          </div>
+          <div class="buttons">
+            <button
+              mat-button
+              color="primary"
+              (click)="openDialog(featuredMovie, 'genre')"
+            >
+              Genre
+            </button>
+            <button
+              mat-button
+              color="primary"
+              (click)="openDialog(featuredMovie, 'director')"
+            >
+              Director
+            </button>
+            <button
+              mat-button
+              color="primary"
+              (click)="openDialog(featuredMovie, 'synopsis')"
+            >
+              Synopsis
+            </button>
+            <mat-icon (click)="toggleFavorite(featuredMovie)">{{
+              featuredMovie.isFavorite ? "favorite" : "favorite_border"
+            }}</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let genre of genres">
+    <h2>{{ genre }}</h2>
+    <div class="genre-container">
+      <button mat-icon-button class="arrow-left" (click)="scrollLeft(genre)">
+        <div class="glass-box">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+      </button>
+      <div #movieListContainer class="movie-list-container">
+        <div class="movie-list" #movieList>
+          <ng-container *ngFor="let movie of movies">
+            <ng-container *ngIf="movie.Genre.Name === genre">
+              <mat-card class="movie-card">
+                <img
+                  src="{{ movie.ImagePath }}"
+                  alt="{{ movie.Title }}"
+                  class="movie-image"
+                />
+                <div class="movie-card-content">
+                  <mat-card-header>
+                    <mat-card-title class="movie-info">{{
+                      movie.Title
+                    }}</mat-card-title>
+                    <mat-card-subtitle class="movie-director">{{
+                      movie.Director.Name
+                    }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <div class="buttons-container">
+                    <button
+                      mat-button
+                      color="primary"
+                      (click)="openDialog(movie, 'genre')"
+                    >
+                      Genre
+                    </button>
+                    <button
+                      mat-button
+                      color="primary"
+                      (click)="openDialog(movie, 'director')"
+                    >
+                      Director
+                    </button>
+                    <button
+                      mat-button
+                      color="primary"
+                      (click)="openDialog(movie, 'synopsis')"
+                    >
+                      Synopsis
+                    </button>
+                    <mat-icon
+                      class="favorite-icon"
+                      (click)="toggleFavorite(movie)"
+                    >
+                      {{ movie.isFavorite ? "favorite" : "favorite_border" }}
+                    </mat-icon>
+                  </div>
+                </div>
+              </mat-card>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <button mat-icon-button class="arrow-right" (click)="scrollRight(genre)">
+        <div class="glass-box">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="30"></mat-spinner>
+  </div>
+</div>
