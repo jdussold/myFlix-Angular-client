@@ -1,6 +1,7 @@
 /* Global styles */
 h2 {
   color: #eb4f2d;
+  margin-bottom: -10px;
 }
 
 body {
@@ -144,7 +145,7 @@ body {
   white-space: nowrap;
   position: relative;
   width: 100%;
-  margin: 0 -40px;
+  margin: 0 -40px -30px;
 }
 .movie-list-wrapper {
   position: relative;
@@ -305,6 +306,9 @@ body {
 }
 
 @media (max-width: 450px) {
+  h2 {
+    margin: 20px;
+  }
   .movie-list-container {
     margin-bottom: -230px;
     margin-top: -50px;
