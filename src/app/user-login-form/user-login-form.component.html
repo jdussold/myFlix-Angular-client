@@ -4,6 +4,7 @@
       <img src="../../assets/images/TextLogo.png" alt="My Flix" />
     </mat-card-header>
     <mat-card-content>
+      <!-- Show loading spinner and text after successfully logging in -->
       <div *ngIf="loading" class="loading-container">
         <mat-spinner diameter="30"></mat-spinner>
         <p class="loading-text">Logging in...</p>
@@ -15,6 +16,7 @@
         class="form-container"
       >
         <div class="form-content">
+          <!-- Username field -->
           <mat-form-field class="input-field">
             <input
               matInput
@@ -37,6 +39,7 @@
               </mat-error>
             </div>
           </mat-form-field>
+          <!-- Password field -->
           <mat-form-field class="input-field">
             <input
               matInput

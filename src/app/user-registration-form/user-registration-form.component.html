@@ -1,10 +1,12 @@
 <div class="card-container">
   <mat-card class="form-card">
+    <!-- Header for displaying logo -->
     <mat-card-header class="center-content">
       <img src="../../assets/images/TextLogo.png" alt="My Flix" />
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="registrationForm" class="form-container">
+        <!-- Inputs for username, password, email, and birthday -->
         <div class="form-content">
           <mat-form-field class="input-field">
             <input
@@ -118,6 +120,8 @@
         </div>
       </form>
     </mat-card-content>
+
+    <!-- Submit button for user registration -->
     <mat-card-actions class="center-content">
       <button
         mat-raised-button
