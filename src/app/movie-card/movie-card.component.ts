@@ -55,7 +55,6 @@ export class MovieCardComponent implements OnInit {
       },
       complete: () => {
         this.loading = false;
-        console.log('Observable completed');
       },
     });
   }
@@ -66,13 +65,8 @@ export class MovieCardComponent implements OnInit {
       const user = JSON.parse(userJson);
       const username = user.Username;
 
-      console.log('getUserFavoriteMovies() called');
-      console.log('userJson:', userJson);
-      console.log('username:', username);
-
       this.fetchApiData.getFavoriteMovies(username).subscribe({
         next: (movies) => {
-          console.log('getFavoriteMovies() response:', movies);
           this.favoriteMovies = movies;
 
           // Set the "isFavorite" property for each movie based on the user's favorite movies
