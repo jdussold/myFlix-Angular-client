@@ -43,6 +43,7 @@ body {
 
 /* Featured movie styles */
 .featured-movie-container {
+  max-height: 60vh;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -62,6 +63,7 @@ body {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+  object-fit: contain;
 }
 
 .featured-movie-container::before {
