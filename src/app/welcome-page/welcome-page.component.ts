@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
-  isDialogOpen: boolean = false; // add a boolean to keep track of whether a dialog is open
+  isDialogOpen: boolean = false;
 
   constructor(public dialog: MatDialog, private router: Router) {}
 
@@ -23,26 +23,26 @@ export class WelcomePageComponent implements OnInit {
   }
 
   openUserRegistrationDialog(): void {
-    this.isDialogOpen = true; // set isDialogOpen to true when a dialog is opened
+    this.isDialogOpen = true;
     this.dialog
       .open(UserRegistrationFormComponent, {
         width: '280px',
       })
       .afterClosed()
       .subscribe(() => {
-        this.isDialogOpen = false; // set isDialogOpen to false when the dialog is closed
+        this.isDialogOpen = false;
       });
   }
 
   openUserLoginDialog(): void {
-    this.isDialogOpen = true; // set isDialogOpen to true when a dialog is opened
+    this.isDialogOpen = true;
     this.dialog
       .open(UserLoginFormComponent, {
         width: '280px',
       })
       .afterClosed()
       .subscribe(() => {
-        this.isDialogOpen = false; // set isDialogOpen to false when the dialog is closed
+        this.isDialogOpen = false;
       });
   }
 }

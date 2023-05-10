@@ -18,8 +18,8 @@ export class ProfilePageComponent implements OnInit {
   editingProfile = false;
   usernameInvalid = false;
   editingPassword = false;
-  deleteClicked = false; // Property used to track whether the "Delete Account" button was clicked
-  maskedPassword = '•'.repeat(8); // Property to store the masked password
+  deleteClicked = false;
+  maskedPassword = '•'.repeat(8);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,7 +58,7 @@ export class ProfilePageComponent implements OnInit {
       // Set the masked password
       this.maskedPassword = '•'.repeat(8);
 
-      // Pass the username to the getFavoriteMovies() method instead of the favorite movie IDs
+      // Pass the username to the getFavoriteMovies() method
       this.fetchApiData.getFavoriteMovies(user.Username).subscribe({
         next: (movies) => {
           this.favoriteMovies = movies;

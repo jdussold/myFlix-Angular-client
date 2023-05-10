@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  ViewChild,
   ElementRef,
   QueryList,
   ViewChildren,
@@ -132,7 +131,7 @@ export class MovieCardComponent implements OnInit {
     const index = this.genres.indexOf(genre);
     const movieList = this.movieLists.toArray()[index].nativeElement;
     movieList.scrollBy({
-      left: -574, // You can adjust this value based on the width of your movie cards
+      left: -574,
       behavior: 'smooth',
     });
   }
@@ -141,7 +140,7 @@ export class MovieCardComponent implements OnInit {
     const index = this.genres.indexOf(genre);
     const movieList = this.movieLists.toArray()[index].nativeElement;
     movieList.scrollBy({
-      left: 574, // You can adjust this value based on the width of your movie cards
+      left: 574,
       behavior: 'smooth',
     });
   }

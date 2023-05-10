@@ -11,15 +11,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login-form.component.scss'],
 })
 export class UserLoginFormComponent implements OnInit {
-  // Declare the userData object with the Username and Password properties
+  // Declares the userData object with the Username and Password properties
   userData = { Username: '', Password: '' };
 
-  // Add a flag to check if there's an error during login
+  // Flag to check if there's an error during login
   loginError: boolean = false;
   loginErrorMessage: string = '';
   loading: boolean = false;
 
-  // Define the login form
+  // Defines the login form
   loginForm: FormGroup = this.fb.group({
     Username: ['', Validators.required],
     Password: ['', Validators.required],
