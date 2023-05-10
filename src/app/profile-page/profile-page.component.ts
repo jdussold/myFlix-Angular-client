@@ -62,7 +62,6 @@ export class ProfilePageComponent implements OnInit {
       this.fetchApiData.getFavoriteMovies(user.Username).subscribe({
         next: (movies) => {
           this.favoriteMovies = movies;
-          console.log('Favorite Movies:', this.favoriteMovies);
 
           // Sort the favoriteMovies array alphabetically
           this.favoriteMovies.sort((a, b) => a.Title.localeCompare(b.Title));
