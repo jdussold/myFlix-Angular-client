@@ -43,7 +43,6 @@ body {
 
 /* Featured movie styles */
 .featured-movie-container {
-  height: 60vh;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -55,12 +54,21 @@ body {
 }
 
 .featured-movie-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  position: relative;
+}
+
+.featured-movie-container::before {
+  display: block;
+  content: "";
   width: 100%;
-  height: 100%;
+  padding-top: 56.25%; /* maintain 16:9 aspect ratio */
 }
 
 .overlay {
@@ -136,6 +144,9 @@ body {
   width: 100%;
   margin: 0 -40px;
 }
+.movie-list-wrapper {
+  position: relative;
+}
 
 .movie-list {
   display: flex;
@@ -169,6 +180,7 @@ body {
   color: #eb4f2d;
   z-index: 1;
   scale: 2.5;
+  margin-bottom: 2%;
 }
 
 .arrow-left {
@@ -247,6 +259,7 @@ body {
 
 .buttons-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
 }
@@ -285,6 +298,62 @@ body {
   display: inline;
   margin: 0;
   font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  .movie-card {
+    flex: 0 0 150px;
+  }
+
+  .movie-image {
+    width: 150px;
+    height: 216px;
+  }
+  .arrow-left,
+  .arrow-right {
+    scale: 1.5;
+  }
+  .arrow-left,
+  .arrow-right {
+    margin-bottom: 13%;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-card {
+    flex: 0 0 200px;
+  }
+
+  .movie-image {
+    width: 198px;
+    height: 285px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .movie-card {
+    flex: 0 0 200px;
+  }
+
+  .movie-image {
+    width: 198px;
+    height: 285px;
+  }
+  .arrow-left,
+  .arrow-right {
+    margin-bottom: 11%;
+  }
+}
+
+@media (min-width: 951px) {
+  .movie-card {
+    flex: 0 0 270px;
+  }
+
+  .movie-image {
+    width: 267px;
+    height: 384px;
+  }
 }
 
 /* Loading styles */
