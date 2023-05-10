@@ -10,7 +10,8 @@
           "-webkit-overflow-scrolling",
           "scrollbar-width",
           "backdrop-filter",
-          "scale"
+          "scale",
+          "scrollbar-color"
         ]
       }
     ]
