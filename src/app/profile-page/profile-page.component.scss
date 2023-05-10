@@ -171,3 +171,51 @@ h2 {
   align-items: center;
   min-height: 100px;
 }
+
+@media screen and (max-width: 767px) {
+  .movie-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    flex: 0 0 135px;
+    height: 208px;
+    margin: 5px;
+    margin-top: 25px;
+    align-items: left;
+    background-color: transparent;
+    position: relative;
+    transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden;
+  }
+
+  .movie-image {
+    width: 100px;
+    height: 145px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .movie-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    flex: 0 0 135px;
+    height: 250px;
+    margin: 5px;
+    margin-top: 25px;
+    align-items: left;
+    background-color: transparent;
+    position: relative;
+    transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden;
+  }
+
+  .movie-image {
+    width: 134px;
+    height: 192px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
