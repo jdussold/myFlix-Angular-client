@@ -60,9 +60,7 @@ export class UserLoginFormComponent implements OnInit {
           this.loginErrorMessage = errorMessage;
         }
       },
-      complete: () => {
-        console.log('Observable completed');
-      },
+      complete: () => {},
     });
   }
 }
