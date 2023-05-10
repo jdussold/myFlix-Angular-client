@@ -1,4 +1,5 @@
 <div class="main-container">
+  <!-- Navigation buttons -->
   <a href="/welcome">
     <img
       src="../../assets/images/TextLogo.png"
@@ -35,6 +36,7 @@
       class="featured-movie-image"
       [style.background-image]="'url(' + featuredMovie.BackdropImage + ')'"
     >
+      <!-- Featured movie content -->
       <div class="overlay">
         <div class="featured-movie-content">
           <div class="title-director">
@@ -71,6 +73,7 @@
       </div>
     </div>
   </div>
+  <!-- Genre containers section -->
   <div *ngFor="let genre of genres">
     <h2>{{ genre }}</h2>
     <div class="genre-container">
@@ -133,6 +136,7 @@
           </ng-container>
         </div>
       </div>
+      <!-- Left and right arrow scroll buttons -->
       <button mat-icon-button class="arrow-right" (click)="scrollRight(genre)">
         <div class="glass-box">
           <mat-icon>keyboard_arrow_right</mat-icon>
