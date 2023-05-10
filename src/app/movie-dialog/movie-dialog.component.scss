@@ -52,7 +52,7 @@
 }
 
 .scroll-container {
-  max-height: calc(140% - 80px); /* Subtract the title bar height */
+  max-height: calc(140% - 80px); /* Subtracts the title bar height */
   overflow-y: auto;
 }
 

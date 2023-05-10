@@ -1,3 +1,4 @@
+/* Global styles */
 h2 {
   color: #eb4f2d;
 }
@@ -11,6 +12,7 @@ h2 {
   margin: 0 auto;
 }
 
+/* Navigation */
 .back-button {
   margin-top: 10px;
   color: #007cfa;
@@ -21,6 +23,7 @@ h2 {
   transform: scale(1.2);
 }
 
+/* Profile form styles */
 .form-group {
   display: flex;
   flex-direction: row;
@@ -61,28 +64,27 @@ h2 {
   color: #eb4f2d;
 }
 
+/* Favorite movies section */
+
+/* Movie Cards */
 .movie-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.director-name {
-  color: #828282;
-}
-
 .movie-card {
-  width: 270px; /* Add this line */
-  box-sizing: border-box; /* Add this line */
   flex: 0 0 270px;
-  height: 480px;
+  height: 100%;
   margin: 10px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: left;
   background-color: transparent;
   position: relative;
   transition: transform 0.3s, background-color 0.3s;
+  overflow: hidden;
 }
 
 .movie-card:hover {
@@ -90,18 +92,62 @@ h2 {
   background-color: #181a1d;
 }
 
+.movie-image {
+  width: 267px;
+  height: 384px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.movie-info {
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: -10px;
+}
+
+.movie-card:hover .movie-info {
+  overflow: visible;
+  white-space: normal;
+}
+
+.movie-director {
+  color: #828282;
+  display: inline;
+  margin: 0;
+  font-size: 12px;
+}
+
+.director-name {
+  color: #828282;
+}
+
+/* Movie Card Buttons */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
 .movie-card button {
   color: #007cfa;
   opacity: 0;
   transition: opacity 0.3s;
   position: relative;
-}
-
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 10px;
 }
 
 .movie-card:hover button {
@@ -118,26 +164,7 @@ h2 {
   opacity: 1;
 }
 
-.movie-image {
-  width: 267px;
-  height: 384px;
-  border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.movie-info {
-  color: #ffffff;
-  text-align: left;
-}
-
-.movie-director {
-  color: #828282;
-  display: inline;
-  margin: 0;
-  font-size: 12px;
-}
-
+/* Loading spinner container */
 .loading-container {
   display: flex;
   justify-content: center;
