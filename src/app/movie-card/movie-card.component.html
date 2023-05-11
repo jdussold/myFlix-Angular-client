@@ -65,9 +65,16 @@
             >
               Synopsis
             </button>
-            <mat-icon (click)="toggleFavorite(featuredMovie)">{{
-              featuredMovie.isFavorite ? "favorite" : "favorite_border"
-            }}</mat-icon>
+            <mat-icon
+              (click)="toggleFavorite(featuredMovie)"
+              title="{{
+                featuredMovie.isFavorite
+                  ? 'Remove from favorites'
+                  : 'Add to favorites'
+              }}"
+            >
+              {{ featuredMovie.isFavorite ? "favorite" : "favorite_border" }}
+            </mat-icon>
           </div>
         </div>
       </div>
@@ -126,6 +133,11 @@
                     <mat-icon
                       class="favorite-icon"
                       (click)="toggleFavorite(movie)"
+                      title="{{
+                        movie.isFavorite
+                          ? 'Remove from favorites'
+                          : 'Add to favorites'
+                      }}"
                     >
                       {{ movie.isFavorite ? "favorite" : "favorite_border" }}
                     </mat-icon>

@@ -141,8 +141,13 @@ export class MovieCardComponent implements OnInit {
 
   toggleFavorite(movie: any): void {
     this.sharedService.toggleFavorite(movie);
-    if (!movie.isFavorite) {
-      // Remove the movie card from the favoriteMovies array
+    movie.isFavorite = !movie.isFavorite; // Toggle the favorite status
+
+    if (movie.isFavorite) {
+      // Add the movie to the favoriteMovies array
+      this.favoriteMovies.push(movie);
+    } else {
+      // Remove the movie from the favoriteMovies array
       this.favoriteMovies = this.favoriteMovies.filter(
         (favMovie) => favMovie._id !== movie._id
       );
