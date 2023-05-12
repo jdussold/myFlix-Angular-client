@@ -1,6 +1,6 @@
-MyFlixAngularClient
+#MyFlixAngularClient
 
-<img src="../assets/images/movie-card-page.png" alt="Image of my flix app" style="max-width: 700px;">
+<img src="./assets/images/movie-card-page.png" alt="Image of my flix app" style="max-width: 700px;">
 
 This project is an Angular client application generated using Angular CLI version 15.2.5. It is designed to work in conjunction with the MyFlix API to provide a user-friendly interface for accessing and interacting with movie data.
 
@@ -11,11 +11,11 @@ Install the necessary dependencies by running npm install.
 Execute the command ng serve to start the development server.
 Open your web browser and navigate to http://localhost:4200/. The application will automatically reload if you make any changes to the source files.
 
-Components
+##Components
 
 ### welcome-page
 
-<img src="../assets/images/welcome-page.png" alt="Image of welcome page" style="max-width: 700px;">
+<img src="./assets/images/welcome-page.png" alt="Image of welcome page" style="max-width: 700px;">
 
 The `welcome-page` component serves as the landing page of the application. It provides a user-friendly interface where users can sign up or log in to access the main features of the application.
 
@@ -44,7 +44,7 @@ In the `ngOnInit()` method, the component checks if a user and token are present
 
 ### user-registration-form
 
-<img src="../assets/images/registration-form.png" alt="Image of user registration form" style="max-width: 700px;">
+<img src="./assets/images/registration-form.png" alt="Image of user registration form" style="max-width: 700px;">
 
 The `user-registration-form` component provides a form for users to register new accounts. It allows users to enter their desired username, password, email, and birthday and handles the registration process.
 
@@ -76,7 +76,7 @@ The component interacts with the `FetchApiDataService` service to send registrat
 
 ### user-login-form
 
-<img src="../assets/images/login-form.png" alt="Image of user login form" style="max-width: 700px;">
+<img src="./assets/images/login-form.png" alt="Image of user login form" style="max-width: 700px;">
 
 The `user-login-form` component provides a form for users to log in to their accounts. It allows users to enter their username and password and handles the authentication process.
 
@@ -108,7 +108,7 @@ The component interacts with the `FetchApiDataService` service to send login req
 
 ### movie-card
 
-<img src="../assets/images/movie-card.png" alt="Image of movie card" style="max-width: 700px;">
+<img src="./assets/images/movie-card.png" alt="Image of movie card" style="max-width: 700px;">
 
 The `movie-card` component is responsible for displaying a grid of movie cards on the homepage. Each movie card represents a movie and provides options to view additional details, such as the genre, director, and synopsis. Users can also add or remove movies from their favorites list.
 
@@ -168,7 +168,7 @@ The `onCloseClick()` function is triggered when the close button is clicked. It 
 
 ### profile-page
 
-<img src="../assets/images/profile-page.png" alt="Image of user profile page" style="max-width: 700px;">
+<img src="./assets/images/profile-page.png" alt="Image of user profile page" style="max-width: 700px;">
 
 The `profile-page` component is responsible for displaying and managing the user's profile information. It allows users to view and edit their profile details, such as username, password, email, and birthday. Users can also delete their account and manage their favorite movies.
 
@@ -228,7 +228,7 @@ The `confirm-password-dialog` component consists of the following files:
 
 The `verifyPassword()` function sends a request to the API to verify the user's password. If the password is correct, the dialog is closed, and the verified password is returned. If an error occurs or the password is incorrect, an error message is displayed.
 
-Services
+##Services
 
 ### fetch-api-data.service
 
