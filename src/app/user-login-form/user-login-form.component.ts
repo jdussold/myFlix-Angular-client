@@ -5,6 +5,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+/**
+ * User Login Form Component
+ */
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -25,6 +28,14 @@ export class UserLoginFormComponent implements OnInit {
     Password: ['', Validators.required],
   });
 
+  /**
+   * Constructor
+   * @param fb - The FormBuilder instance
+   * @param fetchApiData - The FetchApiDataService instance
+   * @param dialogRef - The MatDialogRef instance
+   * @param snackBar - The MatSnackBar instance
+   * @param router - The Router instance
+   */
   constructor(
     private fb: FormBuilder,
     public fetchApiData: FetchApiDataService,
@@ -33,8 +44,14 @@ export class UserLoginFormComponent implements OnInit {
     public router: Router
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of the component are initialized
+   */
   ngOnInit(): void {}
 
+  /**
+   * Logs in the user
+   */
   loginUser(): void {
     const { Username, Password } = this.loginForm.value;
     this.loading = true;

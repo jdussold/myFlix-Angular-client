@@ -1,3 +1,8 @@
+/**
+ * Confirm Password Dialog Component
+ *
+ * This component displays a dialog for confirming password and account deletion.
+ */
 import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -10,10 +15,19 @@ import { throwError } from 'rxjs';
   styleUrls: ['./confirm-password-dialog.component.scss'],
 })
 export class ConfirmPasswordDialogComponent {
+  /** Indicates whether the delete account option is clicked */
   @Input() deleteClicked = false;
+  /** The user's password */
   password = '';
+  /** Error message for password verification */
   passwordError = '';
 
+  /**
+   * Creates an instance of ConfirmPasswordDialogComponent.
+   * @param dialogRef - Reference to the dialog opened by this component
+   * @param fetchApiData - Service for fetching API data
+   * @param data - Data passed to the dialog
+   */
   constructor(
     public dialogRef: MatDialogRef<ConfirmPasswordDialogComponent>,
     private fetchApiData: FetchApiDataService,
@@ -22,7 +36,11 @@ export class ConfirmPasswordDialogComponent {
     this.deleteClicked = data.deleteClicked;
   }
 
-  // Function to verify the user's password
+  /**
+   * Verifies the user's password by making an API call.
+   * If the password is correct, the dialog is closed with the password.
+   * Otherwise, an error message is displayed.
+   */
   verifyPassword(): void {
     const username = JSON.parse(localStorage.getItem('user') || '{}').Username;
     this.fetchApiData

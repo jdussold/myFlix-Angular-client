@@ -12,6 +12,10 @@ export class SharedService {
     private dialog: MatDialog
   ) {}
 
+  /**
+   * Toggle the favorite status of a movie
+   * @param movie - Movie object
+   */
   toggleFavorite(movie: any): void {
     movie.isFavorite = !movie.isFavorite;
     if (movie.isFavorite) {
@@ -25,6 +29,12 @@ export class SharedService {
     }
   }
 
+  /**
+   * Open a movie dialog
+   * @param movie - Movie object
+   * @param type - Dialog type
+   * @param backdropImage - Backdrop image URL
+   */
   openDialog(movie: any, type: string, backdropImage: string): void {
     let data: any;
     switch (type) {

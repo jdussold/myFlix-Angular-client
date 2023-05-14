@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html class="default" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <title>my-flix-angular-client</title>
+    <meta
+      name="description"
+      content="Documentation for my-flix-angular-client"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script defer src="assets/main.js"></script>
+    <script async src="assets/search.js" id="tsd-search-script"></script>
+  </head>
+  <body>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("tsd-theme") || "os";
+    </script>
+    <header class="tsd-page-toolbar">
+      <div class="tsd-toolbar-contents container">
+        <div class="table-cell" id="tsd-search" data-base=".">
+          <div class="field">
+            <label
+              for="tsd-search-field"
+              class="tsd-widget tsd-toolbar-icon search no-caption"
+              ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z"
+                  fill="var(--color-text)"
+                ></path></svg></label
+            ><input type="text" id="tsd-search-field" aria-label="Search" />
+          </div>
+          <div class="field">
+            <div id="tsd-toolbar-links"></div>
+          </div>
+          <ul class="results">
+            <li class="state loading">Preparing search index...</li>
+            <li class="state failure">The search index is not available</li>
+          </ul>
+          <a href="index.html" class="title">my-flix-angular-client</a>
+        </div>
+        <div class="table-cell" id="tsd-widgets">
+          <a
+            href="#"
+            class="tsd-widget tsd-toolbar-icon menu no-caption"
+            data-toggle="menu"
+            aria-label="Menu"
+            ><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect
+                x="1"
+                y="3"
+                width="14"
+                height="2"
+                fill="var(--color-text)"
+              ></rect>
+              <rect
+                x="1"
+                y="7"
+                width="14"
+                height="2"
+                fill="var(--color-text)"
+              ></rect>
+              <rect
+                x="1"
+                y="11"
+                width="14"
+                height="2"
+                fill="var(--color-text)"
+              ></rect></svg
+          ></a>
+        </div>
+      </div>
+    </header>
+    <div class="container container-main">
+      <div class="col-content">
+        <div class="tsd-page-title">
+          <h2>my-flix-angular-client</h2>
+        </div>
+        <div class="tsd-panel tsd-typography">
+          <a id="md:myflixangularclient" class="tsd-anchor"></a>
+          <h1><a href="#md:myflixangularclient">MyFlixAngularClient</a></h1>
+          <img
+            src="./assets/images/movie-card-page.png"
+            alt="Image of my flix app"
+            style="max-width: 700px"
+          />
+
+          <p>
+            This project is an Angular client application generated using
+            Angular CLI version 15.2.5. It is designed to work in conjunction
+            with the MyFlix API to provide a user-friendly interface for
+            accessing and interacting with movie data.
+          </p>
+          <p>
+            Development server To run the development server, follow these
+            steps:
+          </p>
+          <p>
+            Install the necessary dependencies by running npm install. Execute
+            the command ng serve to start the development server. Open your web
+            browser and navigate to
+            <a href="http://localhost:4200/">http://localhost:4200/</a>. The
+            application will automatically reload if you make any changes to the
+            source files.
+          </p>
+          <a id="md:components" class="tsd-anchor"></a>
+          <h2><a href="#md:components">Components</a></h2>
+          <a id="md:welcome-page" class="tsd-anchor"></a>
+          <h3><a href="#md:welcome-page">welcome-page</a></h3>
+          <img
+            src="./assets/images/welcome-page.png"
+            alt="Image of welcome page"
+            style="max-width: 700px"
+          />
+
+          <p>
+            The <code>welcome-page</code> component serves as the landing page
+            of the application. It provides a user-friendly interface where
+            users can sign up or log in to access the main features of the
+            application.
+          </p>
+          <a id="md:usage" class="tsd-anchor"></a>
+          <h4><a href="#md:usage">Usage</a></h4>
+          <p>
+            To use the <code>welcome-page</code> component, follow these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the welcome page to appear:
+              <code>&lt;app-welcome-page&gt;&lt;/app-welcome-page&gt;</code>.
+            </li>
+            <li>
+              The component will display the main content of the welcome page,
+              including an image/logo and buttons for signing up and logging in.
+            </li>
+            <li>
+              Clicking the &quot;Sign Up&quot; button will open a registration
+              dialog, allowing new users to create an account.
+            </li>
+            <li>
+              Clicking the &quot;Login&quot; button will open a login dialog,
+              enabling existing users to log into their accounts.
+            </li>
+            <li>
+              While the registration or login dialog is open, the background of
+              the welcome page is blurred to indicate that interaction with the
+              underlying content is disabled.
+            </li>
+            <li>
+              After the registration or login dialog is closed, the background
+              blur effect is removed, and users can continue interacting with
+              the welcome page.
+            </li>
+          </ol>
+          <a id="md:code-explanation" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation">Code Explanation</a></h4>
+          <p>
+            The <code>welcome-page</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>welcome-page.component.html</code>: This file defines the
+              HTML structure of the welcome page. It includes an image/logo and
+              buttons for signing up and logging in. The
+              <code>[ngClass]</code> directive is used to conditionally apply
+              the &quot;blur&quot; class to the main element when the
+              registration or login dialog is open.
+            </li>
+            <li>
+              <code>welcome-page.component.scss</code>: This file contains the
+              styling rules for the welcome page. It defines the styles for the
+              main element, image/logo, and button group. It also includes the
+              &quot;blur&quot; class to apply the blur effect to the background
+              when the dialog is open.
+            </li>
+            <li>
+              <code>welcome-page.component.ts</code>: This file is the
+              TypeScript code for the component. It handles the logic for
+              opening the registration and login dialogs, as well as managing
+              the <code>isDialogOpen</code> flag to control the blur effect on
+              the background.
+            </li>
+          </ul>
+          <p>
+            The component uses Angular Material&#39;s <code>MatDialog</code> to
+            open the registration and login dialogs. When a dialog is opened,
+            the <code>isDialogOpen</code> flag is set to <code>true</code>,
+            applying the &quot;blur&quot; class to the main element and blurring
+            the background. When a dialog is closed, the
+            <code>isDialogOpen</code> flag is set to <code>false</code>,
+            removing the blur effect.
+          </p>
+          <p>
+            In the <code>ngOnInit()</code> method, the component checks if a
+            user and token are present in the local storage. If so, it
+            automatically redirects the user to the movies page to bypass the
+            welcome page and provide a seamless user experience.
+          </p>
+          <a id="md:user-registration-form" class="tsd-anchor"></a>
+          <h3>
+            <a href="#md:user-registration-form">user-registration-form</a>
+          </h3>
+          <img
+            src="./assets/images/registration-form.png"
+            alt="Image of user registration form"
+            style="max-width: 700px"
+          />
+
+          <p>
+            The <code>user-registration-form</code> component provides a form
+            for users to register new accounts. It allows users to enter their
+            desired username, password, email, and birthday and handles the
+            registration process.
+          </p>
+          <a id="md:usage-1" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-1">Usage</a></h4>
+          <p>
+            To use the <code>user-registration-form</code> component, follow
+            these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the registration form to appear:
+              <code
+                >&lt;app-user-registration-form&gt;&lt;/app-user-registration-form&gt;</code
+              >.
+            </li>
+            <li>
+              The component will display a card with a form containing input
+              fields for username, password, email, and birthday.
+            </li>
+            <li>
+              Users can enter their desired username, password, email, and
+              birthday in the respective input fields.
+            </li>
+            <li>
+              The form provides validation for each input field, ensuring that
+              they are not empty and meet specific requirements.
+            </li>
+            <li>
+              If the user submits the form by clicking the &quot;Sign Up&quot;
+              button, the <code>registerUser()</code> method is triggered.
+            </li>
+            <li>
+              The <code>registerUser()</code> method sends an HTTP request to
+              the API to register the user with the provided information.
+            </li>
+            <li>
+              If the registration is successful, the user is automatically
+              logged in by sending another HTTP request to the API with the
+              registered username and password.
+            </li>
+            <li>
+              If the login after registration is successful, the user&#39;s
+              information and authentication token are stored in the local
+              storage. The user is then redirected to the movies page.
+            </li>
+            <li>
+              If any errors occur during registration or login, error messages
+              are displayed to the user using the
+              <code>MatSnackBar</code> component from Angular Material.
+            </li>
+          </ol>
+          <a id="md:code-explanation-1" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-1">Code Explanation</a></h4>
+          <p>
+            The <code>user-registration-form</code> component consists of the
+            following files:
+          </p>
+          <ul>
+            <li>
+              <code>user-registration-form.component.html</code>: This file
+              defines the HTML structure of the registration form. It includes a
+              card with a form containing input fields for username, password,
+              email, and birthday. It also displays error messages below each
+              input field based on the form validation status.
+            </li>
+            <li>
+              <code>user-registration-form.component.scss</code>: This file
+              contains the styling rules for the registration form. It defines
+              the styles for the card, form, input fields, and error messages.
+            </li>
+            <li>
+              <code>user-registration-form.component.ts</code>: This file is the
+              TypeScript code for the component. It handles the logic for user
+              registration, form validation, API communication, and displaying
+              error messages.
+            </li>
+          </ul>
+          <p>
+            The component uses Angular Reactive Forms (<code>FormGroup</code>
+            and <code>FormControl</code>) to manage the registration form and
+            handle user input. It sets up validators to ensure that each input
+            field meets specific requirements, such as minimum length and
+            pattern validation for the username field, and required and email
+            validation for the email field. If any input field is invalid, the
+            &quot;Sign Up&quot; button is disabled.
+          </p>
+          <p>
+            The component interacts with the
+            <code>FetchApiDataService</code> service to send registration
+            requests to the API. If the registration is successful, the user is
+            automatically logged in by sending a login request with the
+            registered username and password. The user&#39;s information and
+            authentication token are stored in the local storage using the
+            <code>localStorage</code> API. If any errors occur during
+            registration or login, error messages are displayed to the user
+            using the <code>MatSnackBar</code> component.
+          </p>
+          <a id="md:user-login-form" class="tsd-anchor"></a>
+          <h3><a href="#md:user-login-form">user-login-form</a></h3>
+          <img
+            src="./assets/images/login-form.png"
+            alt="Image of user login form"
+            style="max-width: 700px"
+          />
+
+          <p>
+            The <code>user-login-form</code> component provides a form for users
+            to log in to their accounts. It allows users to enter their username
+            and password and handles the authentication process.
+          </p>
+          <a id="md:usage-2" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-2">Usage</a></h4>
+          <p>
+            To use the <code>user-login-form</code> component, follow these
+            steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the login form to appear:
+              <code
+                >&lt;app-user-login-form&gt;&lt;/app-user-login-form&gt;</code
+              >.
+            </li>
+            <li>
+              The component will display a card with a logo, username and
+              password input fields, and a login button.
+            </li>
+            <li>
+              Users can enter their username and password in the respective
+              input fields.
+            </li>
+            <li>
+              The form provides validation for the username and password fields,
+              ensuring that they are not empty.
+            </li>
+            <li>
+              If the user submits the form by clicking the &quot;Log In&quot;
+              button or pressing the enter key, the
+              <code>loginUser()</code> method is triggered.
+            </li>
+            <li>
+              The <code>loginUser()</code> method sends an HTTP request to the
+              API with the provided username and password for authentication.
+            </li>
+            <li>
+              If the login is successful, the user&#39;s information and
+              authentication token are stored in the local storage. The user is
+              then redirected to the movies page.
+            </li>
+            <li>
+              If the login fails due to an invalid username or password, an
+              error message is displayed below the form.
+            </li>
+            <li>
+              The component uses Angular Material components, such as
+              <code>mat-card</code>, <code>mat-form-field</code>,
+              <code>mat-spinner</code>, and <code>mat-error</code>, to provide a
+              visually appealing and user-friendly interface.
+            </li>
+          </ol>
+          <a id="md:code-explanation-2" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-2">Code Explanation</a></h4>
+          <p>
+            The <code>user-login-form</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>user-login-form.component.html</code>: This file defines the
+              HTML structure of the login form. It includes a card with a form
+              containing username and password input fields. It also displays
+              loading spinners and error messages based on the login status.
+            </li>
+            <li>
+              <code>user-login-form.component.scss</code>: This file contains
+              the styling rules for the login form. It defines the styles for
+              the card, form, input fields, loading spinners, and error
+              messages.
+            </li>
+            <li>
+              <code>user-login-form.component.ts</code>: This file is the
+              TypeScript code for the component. It handles the logic for user
+              authentication, form validation, and API communication.
+            </li>
+          </ul>
+          <p>
+            The component uses Angular Reactive Forms (<code>FormGroup</code>
+            and <code>FormControl</code>) to manage the login form and handle
+            user input. It sets up validators to ensure that the username and
+            password fields are not empty. If the form is invalid, the &quot;Log
+            In&quot; button is disabled.
+          </p>
+          <p>
+            The component interacts with the
+            <code>FetchApiDataService</code> service to send login requests to
+            the API. If the login is successful, the user&#39;s information and
+            authentication token are stored in the local storage using the
+            <code>localStorage</code> API. If the login fails, an error message
+            is displayed to the user.
+          </p>
+          <a id="md:movie-card" class="tsd-anchor"></a>
+          <h3><a href="#md:movie-card">movie-card</a></h3>
+          <img
+            src="./assets/images/movie-card.png"
+            alt="Image of movie card"
+            style="max-width: 700px"
+          />
+
+          <p>
+            The <code>movie-card</code> component is responsible for displaying
+            a grid of movie cards on the homepage. Each movie card represents a
+            movie and provides options to view additional details, such as the
+            genre, director, and synopsis. Users can also add or remove movies
+            from their favorites list.
+          </p>
+          <a id="md:usage-3" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-3">Usage</a></h4>
+          <p>
+            To use the <code>movie-card</code> component, follow these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the movie grid to appear:
+              <code>&lt;app-movie-card&gt;&lt;/app-movie-card&gt;</code>.
+            </li>
+            <li>
+              The component will automatically fetch and display the movies from
+              the API.
+            </li>
+            <li>
+              The featured movie section will display a randomly selected movie
+              from the featured movies list.
+            </li>
+            <li>
+              Each movie card includes the movie title, director, and a backdrop
+              image.
+            </li>
+            <li>
+              Users can click on the genre, director, or synopsis buttons to
+              open a dialog box that displays additional details about the
+              movie.
+            </li>
+            <li>
+              The heart-shaped icon allows users to add or remove the movie from
+              their favorites list.
+            </li>
+            <li>
+              Users can navigate between the homepage, profile page, and log out
+              using the navigation buttons at the top.
+            </li>
+            <li>
+              The movie grid is divided into sections based on genres. Users can
+              scroll left or right within each genre section using the arrow
+              buttons.
+            </li>
+          </ol>
+          <a id="md:code-explanation-3" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-3">Code Explanation</a></h4>
+          <p>
+            The <code>movie-card</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>movie-card.component.html</code>: This file defines the HTML
+              structure of the component. It includes the navigation buttons,
+              featured movie section, genre containers, movie cards, and loading
+              spinner.
+            </li>
+            <li>
+              <code>movie-card.component.scss</code>: This file contains the
+              styling rules for the component. It defines the styles for the
+              navigation buttons, movie cards, genre containers, and loading
+              spinner.
+            </li>
+            <li>
+              <code>movie-card.component.ts</code>: This file is the TypeScript
+              code for the component. It handles the logic of fetching movies
+              from the API, displaying the featured movie, scrolling within
+              genre sections, toggling favorite status, opening dialog boxes for
+              movie details, and logging out.
+            </li>
+          </ul>
+          <p>
+            The <code>getMovies()</code> function fetches all the movies from
+            the API and stores them in the <code>movies</code> array. The
+            <code>getUserFavoriteMovies()</code> function retrieves the
+            user&#39;s favorite movies and updates the favorite status of each
+            movie. The <code>getFeaturedMovies()</code> function selects a
+            random movie from the list of featured movies and displays it in the
+            featured movie section. The
+            <code>rotateFeaturedMovie()</code> function automatically rotates
+            the featured movie every 8 seconds.
+          </p>
+          <p>
+            Users can scroll left or right within each genre section using the
+            arrow buttons, which call the <code>scrollLeft()</code> and
+            <code>scrollRight()</code> functions. The
+            <code>toggleFavorite()</code> function allows users to add or remove
+            movies from their favorites list by toggling the favorite status of
+            a movie. The <code>openDialog()</code> function opens a dialog box
+            with additional details about a movie when the user clicks on the
+            genre, director, or synopsis button.
+          </p>
+          <a id="md:movie-dialog" class="tsd-anchor"></a>
+          <h3><a href="#md:movie-dialog">movie-dialog</a></h3>
+          <p>
+            The <code>movie-dialog</code> component is responsible for
+            displaying a dialog box with additional details about a movie. It
+            can be used to show information such as the genre, director, or
+            synopsis of a movie.
+          </p>
+          <a id="md:usage-4" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-4">Usage</a></h4>
+          <p>
+            To use the <code>movie-dialog</code> component, follow these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the movie dialog to appear:
+              <code>&lt;app-movie-dialog&gt;&lt;/app-movie-dialog&gt;</code>.
+            </li>
+            <li>
+              When you need to display the dialog, pass the required data to the
+              component using the <code>data</code> parameter.
+            </li>
+            <li>
+              Set the <code>title</code> property in the
+              <code>data</code> object to specify the title of the dialog.
+            </li>
+            <li>
+              Set the <code>backdropImage</code> property in the
+              <code>data</code> object to specify the background image for the
+              dialog.
+            </li>
+            <li>
+              If you want to display genre-specific information, set the
+              <code>genre</code> property in the <code>data</code> object to the
+              genre of the movie.
+            </li>
+            <li>
+              Set the <code>message</code> property in the
+              <code>data</code> object to the message or content you want to
+              display in the dialog.
+            </li>
+            <li>
+              The dialog will automatically open and display the provided data.
+            </li>
+            <li>
+              Users can close the dialog by clicking the close button or
+              anywhere outside the dialog box.
+            </li>
+          </ol>
+          <a id="md:code-explanation-4" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-4">Code Explanation</a></h4>
+          <p>
+            The <code>movie-dialog</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>movie-dialog.component.html</code>: This file defines the
+              HTML structure of the dialog box. It includes the dialog title,
+              close button, content area, and an overlay to darken the
+              background.
+            </li>
+            <li>
+              <code>movie-dialog.component.scss</code>: This file contains the
+              styling rules for the dialog box. It defines the styles for the
+              dialog title, close button, content area, and overlay.
+            </li>
+            <li>
+              <code>movie-dialog.component.ts</code>: This file is the
+              TypeScript code for the component. It handles the logic of closing
+              the dialog when the close button is clicked.
+            </li>
+          </ul>
+          <p>
+            The <code>movie-dialog</code> component receives the necessary data
+            through the <code>MAT_DIALOG_DATA</code> injection token. The
+            <code>data</code> object contains the properties <code>title</code>,
+            <code>backdropImage</code>, <code>genre</code>, and
+            <code>message</code>, which are used to populate the dialog content.
+          </p>
+          <p>
+            The <code>onCloseClick()</code> function is triggered when the close
+            button is clicked. It calls the <code>close()</code> method of the
+            <code>MatDialogRef</code> to close the dialog.
+          </p>
+          <a id="md:profile-page" class="tsd-anchor"></a>
+          <h3><a href="#md:profile-page">profile-page</a></h3>
+          <img
+            src="./assets/images/profile-page.png"
+            alt="Image of user profile page"
+            style="max-width: 700px"
+          />
+
+          <p>
+            The <code>profile-page</code> component is responsible for
+            displaying and managing the user&#39;s profile information. It
+            allows users to view and edit their profile details, such as
+            username, password, email, and birthday. Users can also delete their
+            account and manage their favorite movies.
+          </p>
+          <a id="md:usage-5" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-5">Usage</a></h4>
+          <p>
+            To use the <code>profile-page</code> component, follow these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the profile page to appear:
+              <code>&lt;app-profile-page&gt;&lt;/app-profile-page&gt;</code>.
+            </li>
+            <li>
+              The component will automatically fetch and display the user&#39;s
+              profile information, including the username, email, and birthday.
+            </li>
+            <li>
+              Users can click the &quot;Edit Profile&quot; button to enter edit
+              mode and modify their profile details.
+            </li>
+            <li>
+              In edit mode, users can change their username, password, email,
+              and birthday.
+            </li>
+            <li>
+              The component provides validation for username, password, and
+              email fields to ensure they meet the required criteria.
+            </li>
+            <li>
+              Users can save their changes by clicking the &quot;Save
+              Changes&quot; button, which triggers the
+              <code>onSubmit()</code> method.
+            </li>
+            <li>
+              If users decide not to save their changes, they can click the
+              &quot;Cancel&quot; button to revert to the original profile
+              information.
+            </li>
+            <li>
+              Users can delete their account by clicking the &quot;Delete
+              Account&quot; button. This action will prompt them to confirm
+              their password.
+            </li>
+            <li>
+              Users can manage their favorite movies by viewing and interacting
+              with the displayed movie cards. They can click on the movie cards
+              to view additional information, such as genre, director, and
+              synopsis. They can also toggle the favorite status of a movie by
+              clicking the heart icon.
+            </li>
+            <li>
+              The component uses Angular Material components, such as buttons,
+              forms, cards, and dialogs, to provide a user-friendly interface.
+            </li>
+          </ol>
+          <a id="md:code-explanation-5" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-5">Code Explanation</a></h4>
+          <p>
+            The <code>profile-page</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>profile-page.component.html</code>: This file defines the
+              HTML structure of the profile page. It includes the top bar
+              section, profile forms for non-editing and editing modes, and a
+              section to display the user&#39;s favorite movies.
+            </li>
+            <li>
+              <code>profile-page.component.scss</code>: This file contains the
+              styling rules for the profile page. It defines the styles for the
+              top bar, forms, buttons, and movie cards.
+            </li>
+            <li>
+              <code>profile-page.component.ts</code>: This file is the
+              TypeScript code for the component. It handles the logic for
+              fetching and displaying the user&#39;s profile information, as
+              well as managing profile editing, deletion, and favorite movie
+              functionality.
+            </li>
+          </ul>
+          <p>
+            The <code>profile-page</code> component uses Angular Reactive Forms
+            (<code>FormGroup</code> and <code>FormControl</code>) to manage the
+            profile form and handle user input. It sets up validators to ensure
+            that the username, password, and email fields meet the required
+            criteria. The component also provides visual feedback to the user by
+            displaying warning messages for invalid input.
+          </p>
+          <p>
+            The component interacts with the
+            <code>FetchApiDataService</code> service to fetch and update user
+            data from the API. It communicates with other components, such as
+            the <code>ConfirmPasswordDialogComponent</code> and
+            <code>SharedService</code>, to handle password verification, dialog
+            opening, and favorite movie management.
+          </p>
+          <p>
+            When users submit their changes or delete their account, the
+            component verifies the password by opening a confirmation dialog. If
+            the password is verified, the component performs the corresponding
+            action, such as updating the user&#39;s profile or deleting the
+            account.
+          </p>
+          <a id="md:confirm-password-dialog" class="tsd-anchor"></a>
+          <h3>
+            <a href="#md:confirm-password-dialog">confirm-password-dialog</a>
+          </h3>
+          <p>
+            The <code>confirm-password-dialog</code> component is responsible
+            for displaying a dialog box to confirm a password or delete an
+            account. It provides the user with the option to enter their current
+            password and perform the corresponding action.
+          </p>
+          <a id="md:usage-6" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-6">Usage</a></h4>
+          <p>
+            To use the <code>confirm-password-dialog</code> component, follow
+            these steps:
+          </p>
+          <ol>
+            <li>
+              Add the following selector to your template file where you want
+              the dialog to appear:
+              <code
+                >&lt;app-confirm-password-dialog&gt;&lt;/app-confirm-password-dialog&gt;</code
+              >.
+            </li>
+            <li>
+              Configure the component by passing the
+              <code>deleteClicked</code> parameter as an input. Set it to
+              <code>true</code> if you want to display the delete account
+              confirmation dialog, or <code>false</code> for the confirm changes
+              dialog.
+            </li>
+            <li>
+              The component will display the appropriate title and message based
+              on the <code>deleteClicked</code> input.
+            </li>
+            <li>
+              The user can enter their password in the password input field.
+            </li>
+            <li>
+              If the password is incorrect or an error occurs during
+              verification, an error message will be displayed.
+            </li>
+            <li>
+              Clicking the &quot;Cancel&quot; button will close the dialog.
+            </li>
+            <li>
+              Clicking the &quot;Confirm&quot; button will call the
+              <code>verifyPassword()</code> function to verify the entered
+              password.
+            </li>
+            <li>
+              If the password is successfully verified, the dialog will be
+              closed and the verified password will be returned.
+            </li>
+          </ol>
+          <a id="md:code-explanation-6" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-6">Code Explanation</a></h4>
+          <p>
+            The <code>confirm-password-dialog</code> component consists of the
+            following files:
+          </p>
+          <ul>
+            <li>
+              <code>confirm-password-dialog.component.html</code>: This file
+              defines the HTML structure of the dialog box. It includes the
+              dialog title, content, password input field, error message, and
+              action buttons.
+            </li>
+            <li>
+              <code>confirm-password-dialog.component.scss</code>: This file
+              contains the styling rules for the dialog box. It defines the
+              styles for the dialog title, content, error message, and action
+              buttons.
+            </li>
+            <li>
+              <code>confirm-password-dialog.component.ts</code>: This file is
+              the TypeScript code for the component. It handles the logic of
+              verifying the password and communicates with the API using the
+              <code>FetchApiDataService</code> service.
+            </li>
+          </ul>
+          <p>
+            The <code>verifyPassword()</code> function sends a request to the
+            API to verify the user&#39;s password. If the password is correct,
+            the dialog is closed, and the verified password is returned. If an
+            error occurs or the password is incorrect, an error message is
+            displayed.
+          </p>
+          <a id="md:services" class="tsd-anchor"></a>
+          <h2><a href="#md:services">Services</a></h2>
+          <a id="md:fetch-api-dataservice" class="tsd-anchor"></a>
+          <h3>
+            <a href="#md:fetch-api-dataservice">fetch-api-data.service</a>
+          </h3>
+          <p>
+            The <code>fetch-api-data.service</code> component is responsible for
+            handling HTTP requests to the API server. It provides methods for
+            user registration, user login, fetching movies, fetching user
+            details, managing favorite movies, editing user details, and
+            deleting a user.
+          </p>
+          <a id="md:usage-7" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-7">Usage</a></h4>
+          <p>
+            To use the <code>fetch-api-data.service</code> component, follow
+            these steps:
+          </p>
+          <ol>
+            <li>
+              <p>
+                Import the <code>FetchApiDataService</code> service into your
+                Angular component or service file.
+              </p>
+            </li>
+            <li>
+              <p>
+                Inject the <code>FetchApiDataService</code> service into your
+                constructor:
+              </p>
+              <p>typescriptCopy code</p>
+              <p>
+                <code
+                  >constructor(private fetchApiData: FetchApiDataService)
+                  {}</code
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the methods provided by the service to interact with the API
+                server.
+              </p>
+            </li>
+          </ol>
+          <a id="md:code-explanation-7" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-7">Code Explanation</a></h4>
+          <p>
+            The <code>fetch-api-data.service</code> component consists of the
+            following files:
+          </p>
+          <ul>
+            <li>
+              <code>fetch-api-data.service.ts</code>: This file contains the
+              service class that handles HTTP requests using the Angular
+              <code>HttpClient</code> module. It provides methods for user
+              registration, user login, fetching movies, fetching user details,
+              managing favorite movies, editing user details, and deleting a
+              user.
+            </li>
+          </ul>
+          <p>
+            The methods in the service make use of the
+            <code>HttpClient</code> module to send HTTP requests to the API
+            server. The API URL is defined as <code>apiUrl</code>.
+          </p>
+          <p>
+            The service methods return <code>Observable</code> objects that can
+            be subscribed to in order to receive the API response. The responses
+            are transformed using operators from the RxJS library, such as
+            <code>pipe</code>, <code>map</code>, and <code>catchError</code>.
+          </p>
+          <p>
+            The service also includes utility methods such as
+            <code>extractResponseData</code> and <code>handleError</code>:
+          </p>
+          <ul>
+            <li>
+              <code>extractResponseData(res: any)</code>: This method extracts
+              the response body from an API response. It is used as a mapping
+              function in the <code>map</code> operator to transform the API
+              response.
+            </li>
+            <li>
+              <code>handleError(error: HttpErrorResponse)</code>: This method
+              handles HTTP errors that may occur during API requests. It logs
+              the error details to the console and returns an error message as
+              an <code>Observable</code>.
+            </li>
+          </ul>
+          <p>
+            To use the service methods, simply call them in your Angular
+            component or service, and subscribe to the returned
+            <code>Observable</code> to receive the API response.
+          </p>
+          <a id="md:shared-service" class="tsd-anchor"></a>
+          <h3><a href="#md:shared-service">shared-service</a></h3>
+          <p>
+            The <code>shared-service</code> component provides shared
+            functionality and services that can be used across different
+            components in the application. It includes methods for toggling a
+            movie&#39;s favorite status and opening a dialog box to display
+            additional movie details.
+          </p>
+          <a id="md:usage-8" class="tsd-anchor"></a>
+          <h4><a href="#md:usage-8">Usage</a></h4>
+          <p>
+            To use the <code>shared-service</code> component, follow these
+            steps:
+          </p>
+          <ol>
+            <li>
+              <p>
+                Import the <code>SharedService</code> service into your Angular
+                component or service file.
+              </p>
+            </li>
+            <li>
+              <p>
+                Inject the <code>SharedService</code> service into your
+                constructor:
+              </p>
+              <p>typescriptCopy code</p>
+              <p>
+                <code
+                  >constructor(private sharedService: SharedService) {}</code
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the methods provided by the service to access the shared
+                functionality.
+              </p>
+            </li>
+          </ol>
+          <a id="md:code-explanation-8" class="tsd-anchor"></a>
+          <h4><a href="#md:code-explanation-8">Code Explanation</a></h4>
+          <p>
+            The <code>shared-service</code> component consists of the following
+            files:
+          </p>
+          <ul>
+            <li>
+              <code>shared-service.ts</code>: This file contains the service
+              class that provides shared functionality and services. It is
+              injected with the <code>FetchApiDataService</code> and
+              <code>MatDialog</code> services.
+            </li>
+          </ul>
+          <p>
+            The <code>toggleFavorite(movie: any)</code> method is used to toggle
+            the favorite status of a movie. It takes a movie object as a
+            parameter and updates its <code>isFavorite</code> property. If the
+            movie is marked as a favorite, it calls the
+            <code>addFavoriteMovie</code> method from the
+            <code>FetchApiDataService</code> service to add the movie to the
+            user&#39;s favorite list. If the movie is no longer a favorite, it
+            calls the <code>removeFavoriteMovie</code> method to remove the
+            movie from the user&#39;s favorite list.
+          </p>
+          <p>
+            The
+            <code
+              >openDialog(movie: any, type: string, backdropImage: string)</code
+            >
+            method is used to open a dialog box that displays additional movie
+            details. It takes the movie object, type of information to display
+            (e.g., genre, director, synopsis), and backdrop image URL as
+            parameters. Based on the type of information, it prepares the data
+            object to be passed to the <code>MovieDialogComponent</code> dialog
+            component. The dialog is then opened using the
+            <code>MatDialog</code> service, and the data object is passed as the
+            dialog&#39;s data input.
+          </p>
+          <p>
+            To use the service methods, simply call them in your Angular
+            component or service, and they will provide the desired
+            functionality.
+          </p>
+          <p>
+            Further help To get more help on the Angular CLI, use ng help or
+            refer to the Angular CLI Overview and Command Reference page.
+          </p>
+        </div>
+      </div>
+      <div class="col-sidebar">
+        <div class="page-menu">
+          <div class="tsd-navigation settings">
+            <details class="tsd-index-accordion">
+              <summary class="tsd-accordion-summary">
+                <h3>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z"
+                      fill="var(--color-text)"
+                    ></path></svg
+                  >Settings
+                </h3>
+              </summary>
+              <div class="tsd-accordion-details">
+                <div class="tsd-filter-visibility">
+                  <h4 class="uppercase">Member Visibility</h4>
+                  <form>
+                    <ul id="tsd-filter-options">
+                      <li class="tsd-filter-item">
+                        <label class="tsd-filter-input"
+                          ><input
+                            type="checkbox"
+                            id="tsd-filter-protected"
+                            name="protected"
+                          /><svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              class="tsd-checkbox-background"
+                              width="30"
+                              height="30"
+                              x="1"
+                              y="1"
+                              rx="6"
+                              fill="none"
+                            ></rect>
+                            <path
+                              class="tsd-checkbox-checkmark"
+                              d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                              stroke="none"
+                              stroke-width="3.5"
+                              stroke-linejoin="round"
+                              fill="none"
+                            ></path></svg
+                          ><span>Protected</span></label
+                        >
+                      </li>
+                      <li class="tsd-filter-item">
+                        <label class="tsd-filter-input"
+                          ><input
+                            type="checkbox"
+                            id="tsd-filter-private"
+                            name="private"
+                          /><svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              class="tsd-checkbox-background"
+                              width="30"
+                              height="30"
+                              x="1"
+                              y="1"
+                              rx="6"
+                              fill="none"
+                            ></rect>
+                            <path
+                              class="tsd-checkbox-checkmark"
+                              d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                              stroke="none"
+                              stroke-width="3.5"
+                              stroke-linejoin="round"
+                              fill="none"
+                            ></path></svg
+                          ><span>Private</span></label
+                        >
+                      </li>
+                      <li class="tsd-filter-item">
+                        <label class="tsd-filter-input"
+                          ><input
+                            type="checkbox"
+                            id="tsd-filter-inherited"
+                            name="inherited"
+                            checked
+                          /><svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              class="tsd-checkbox-background"
+                              width="30"
+                              height="30"
+                              x="1"
+                              y="1"
+                              rx="6"
+                              fill="none"
+                            ></rect>
+                            <path
+                              class="tsd-checkbox-checkmark"
+                              d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                              stroke="none"
+                              stroke-width="3.5"
+                              stroke-linejoin="round"
+                              fill="none"
+                            ></path></svg
+                          ><span>Inherited</span></label
+                        >
+                      </li>
+                      <li class="tsd-filter-item">
+                        <label class="tsd-filter-input"
+                          ><input
+                            type="checkbox"
+                            id="tsd-filter-external"
+                            name="external"
+                          /><svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              class="tsd-checkbox-background"
+                              width="30"
+                              height="30"
+                              x="1"
+                              y="1"
+                              rx="6"
+                              fill="none"
+                            ></rect>
+                            <path
+                              class="tsd-checkbox-checkmark"
+                              d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                              stroke="none"
+                              stroke-width="3.5"
+                              stroke-linejoin="round"
+                              fill="none"
+                            ></path></svg
+                          ><span>External</span></label
+                        >
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+                <div class="tsd-theme-toggle">
+                  <h4 class="uppercase">Theme</h4>
+                  <select id="tsd-theme">
+                    <option value="os">OS</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                  </select>
+                </div>
+              </div>
+            </details>
+          </div>
+          <details open class="tsd-index-accordion tsd-page-navigation">
+            <summary class="tsd-accordion-summary">
+              <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z"
+                    fill="var(--color-text)"
+                  ></path></svg
+                >On This Page
+              </h3>
+            </summary>
+            <div class="tsd-accordion-details">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#md:myflixangularclient"
+                        ><span
+                          >My<wbr />Flix<wbr />Angular<wbr />Client</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <ul>
+                        <li>
+                          <a href="#md:components"><span>Components</span></a>
+                        </li>
+                        <li>
+                          <ul>
+                            <li>
+                              <a href="#md:welcome-page"
+                                ><span>welcome-<wbr />page</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:user-registration-form"
+                                ><span
+                                  >user-<wbr />registration-<wbr />form</span
+                                ></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-1"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-1"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:user-login-form"
+                                ><span>user-<wbr />login-<wbr />form</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-2"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-2"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:movie-card"
+                                ><span>movie-<wbr />card</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-3"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-3"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:movie-dialog"
+                                ><span>movie-<wbr />dialog</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-4"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-4"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:profile-page"
+                                ><span>profile-<wbr />page</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-5"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-5"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:confirm-password-dialog"
+                                ><span
+                                  >confirm-<wbr />password-<wbr />dialog</span
+                                ></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-6"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-6"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#md:services"><span>Services</span></a>
+                        </li>
+                        <li>
+                          <ul>
+                            <li>
+                              <a href="#md:fetch-api-dataservice"
+                                ><span
+                                  >fetch-<wbr />api-<wbr />data.service</span
+                                ></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-7"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-7"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#md:shared-service"
+                                ><span>shared-<wbr />service</span></a
+                              >
+                            </li>
+                            <li>
+                              <ul>
+                                <li>
+                                  <a href="#md:usage-8"><span>Usage</span></a>
+                                </li>
+                                <li>
+                                  <a href="#md:code-explanation-8"
+                                    ><span>Code <wbr />Explanation</span></a
+                                  >
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </div>
+        <div class="site-menu">
+          <nav class="tsd-navigation">
+            <a href="modules.html" class="current"
+              ><svg
+                class="tsd-kind-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <rect
+                  fill="var(--color-icon-background)"
+                  stroke="var(--color-ts-namespace)"
+                  stroke-width="1.5"
+                  x="1"
+                  y="1"
+                  width="22"
+                  height="22"
+                  rx="6"
+                  id="icon-4-path"
+                ></rect>
+                <path
+                  d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z"
+                  fill="var(--color-text)"
+                  id="icon-4-text"
+                ></path></svg
+              ><span>my-<wbr />flix-<wbr />angular-<wbr />client</span></a
+            >
+            <ul class="tsd-small-nested-navigation"></ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="tsd-generator">
+      <p>
+        Generated using
+        <a href="https://typedoc.org/" target="_blank" rel="noopener"
+          >TypeDoc</a
+        >
+      </p>
+    </div>
+    <div class="overlay"></div>
+  </body>
+</html>

@@ -7,6 +7,9 @@ import { ConfirmPasswordDialogComponent } from '../confirm-password-dialog/confi
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SharedService } from '../shared.service';
 
+/**
+ * Profile Page Component
+ */
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -21,6 +24,15 @@ export class ProfilePageComponent implements OnInit {
   deleteClicked = false;
   maskedPassword = '•'.repeat(8);
 
+  /**
+   * Constructor
+   * @param formBuilder - The FormBuilder instance
+   * @param router - The Router instance
+   * @param fetchApiData - The FetchApiDataService instance
+   * @param dialog - The MatDialog instance
+   * @param snackBar - The MatSnackBar instance
+   * @param sharedService - The SharedService instance
+   */
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -30,6 +42,9 @@ export class ProfilePageComponent implements OnInit {
     private sharedService: SharedService
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of the component are initialized
+   */
   ngOnInit() {
     this.profileForm = this.formBuilder.group({
       Username: [
@@ -76,6 +91,9 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles the change event when the username input value changes
+   */
   onUsernameChange(): void {
     const usernameControl = this.profileForm.get('Username');
     if (usernameControl) {
@@ -85,6 +103,9 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Toggles the password editing mode
+   */
   togglePasswordEditing(): void {
     this.editingPassword = !this.editingPassword;
     if (this.editingPassword) {
@@ -94,6 +115,9 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles the form submission
+   */
   onSubmit(): void {
     if (this.editingProfile) {
       // Send a blank string for the password if the user hasn't edited the password
@@ -104,11 +128,19 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles the delete account action
+   */
   onDelete(): void {
     this.deleteClicked = true; // Set the deleteClicked property to true
     this.openConfirmPasswordDialog('delete');
   }
 
+  /**
+   * Verifies and updates the user after password verification, based on the requested action
+   * @param password - The user's password
+   * @param action - The action to perform (edit or delete)
+   */
   verifyAndUpdateUser(password: string, action: string): void {
     const username = JSON.parse(localStorage.getItem('user') || '{}').Username;
     this.fetchApiData.verifyPassword(username, password).subscribe({
@@ -150,6 +182,11 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a snack bar with the given message and action
+   * @param message - The message to display
+   * @param action - The action text
+   */
   openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {
       duration: 5000,
@@ -158,6 +195,10 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Toggles the favorite status of a movie
+   * @param movie - The movie object
+   */
   toggleFavorite(movie: any): void {
     this.sharedService.toggleFavorite(movie);
     if (!movie.isFavorite) {
@@ -168,10 +209,19 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Opens a dialog for the movie
+   * @param movie - The movie object
+   * @param type - The type of dialog
+   */
   openDialog(movie: any, type: string): void {
     this.sharedService.openDialog(movie, type, movie.BackdropImage);
   }
 
+  /**
+   * Opens the confirm password dialog
+   * @param action - The action to perform (edit or delete)
+   */
   openConfirmPasswordDialog(action: string): void {
     const dialogRef = this.dialog.open(ConfirmPasswordDialogComponent, {
       width: '350px',
@@ -185,6 +235,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Navigates back to the movies page
+   */
   goBack(): void {
     this.router.navigate(['/movies']);
   }

@@ -10,6 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
 
+/**
+ * Movie Card Component
+ */
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -26,6 +29,13 @@ export class MovieCardComponent implements OnInit {
   movieListContainers!: QueryList<ElementRef>;
   @ViewChildren('movieList') movieLists!: QueryList<ElementRef>;
 
+  /**
+   * Constructor
+   * @param fetchApiData - The FetchApiDataService instance
+   * @param dialog - The MatDialog instance
+   * @param router - The Router instance
+   * @param sharedService - The SharedService instance
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -35,6 +45,9 @@ export class MovieCardComponent implements OnInit {
     this.favoriteMovies = [];
   }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of the component are initialized
+   */
   ngOnInit(): void {
     this.getMovies();
     this.getUserFavoriteMovies();
@@ -42,6 +55,9 @@ export class MovieCardComponent implements OnInit {
     this.rotateFeaturedMovie();
   }
 
+  /**
+   * Fetches all movies from the API
+   */
   getMovies(): void {
     this.loading = true;
     this.fetchApiData.getAllMovies().subscribe({
@@ -59,6 +75,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Fetches the user's favorite movies from the API
+   */
   getUserFavoriteMovies(): void {
     const userJson = localStorage.getItem('user');
     if (userJson) {
@@ -91,6 +110,9 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
+  /**
+   * Fetches the featured movies from the API
+   */
   getFeaturedMovies(): void {
     this.fetchApiData.getAllMovies().subscribe({
       next: (resp: any[]) => {
@@ -108,6 +130,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Rotates the the featured movie at regular intervals
+   */
   rotateFeaturedMovie(): void {
     setInterval(() => {
       const featuredMovies = this.movies.filter(
@@ -121,6 +146,10 @@ export class MovieCardComponent implements OnInit {
     }, 8000);
   }
 
+  /**
+   * Scrolls the movie list container to the left
+   * @param genre - The genre of the movie list
+   */
   scrollLeft(genre: string): void {
     const index = this.genres.indexOf(genre);
     const movieList = this.movieLists.toArray()[index].nativeElement;
@@ -130,6 +159,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Scrolls the movie list container to the right
+   * @param genre - The genre of the movie list
+   */
   scrollRight(genre: string): void {
     const index = this.genres.indexOf(genre);
     const movieList = this.movieLists.toArray()[index].nativeElement;
@@ -139,6 +172,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Toggles the favorite status of a move
+   * @param movie - The movie object
+   */
   toggleFavorite(movie: any): void {
     this.sharedService.toggleFavorite(movie);
     movie.isFavorite = !movie.isFavorite; // Toggle the favorite status
@@ -154,16 +191,28 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
+  /**
+   * Retrieves the unique genres from the movie list
+   * @returns An array of genre names
+   */
   private getGenres(): string[] {
     const genresSet = new Set<string>();
     this.movies.forEach((movie) => genresSet.add(movie.Genre.Name));
     return Array.from(genresSet);
   }
 
+  /**
+   * Opens a dialog for the movie
+   * @param movie - The movie object
+   * @param type - The type of dialog
+   */
   openDialog(movie: any, type: string): void {
     this.sharedService.openDialog(movie, type, movie.BackdropImage);
   }
 
+  /**
+   * Updates the favorite status of each movie
+   */
   public updateFavoriteStatus(): void {
     this.movies.forEach((movie) => {
       movie.isFavorite =
@@ -171,6 +220,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Logs out the user and navigates to the welcome page
+   */
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');

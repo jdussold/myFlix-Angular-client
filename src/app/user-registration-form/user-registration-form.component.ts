@@ -5,6 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+/**
+ * User Registration Form Component
+ */
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -13,6 +16,14 @@ import { Router } from '@angular/router';
 export class UserRegistrationFormComponent implements OnInit {
   registrationForm: FormGroup;
 
+  /**
+   * Constructor
+   * @param fetchApiData - The FetchApiDataService instance
+   * @param dialogRef - The MatDialogRef instance
+   * @param snackBar - The MatSnackBar instance
+   * @param fb - The FormBuilder instance
+   * @param router - The Router instance
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -35,8 +46,14 @@ export class UserRegistrationFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of the component are initialized
+   */
   ngOnInit(): void {}
 
+  /**
+   * Registers a new user
+   */
   registerUser(): void {
     const { Username, Password, Email, Birthday } = this.registrationForm.value;
     this.fetchApiData
