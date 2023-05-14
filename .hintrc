@@ -15,6 +15,7 @@
           "height: fit-content"
         ]
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }
