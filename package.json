@@ -13,8 +13,8 @@
     "@angular/animations": "^19.2.18",
     "@angular/cdk": "^19.0.0",
     "@angular/common": "^19.2.18",
-    "@angular/compiler": "^19.2.18",
-    "@angular/core": "^19.2.18",
+    "@angular/compiler": "^19.2.19",
+    "@angular/core": "^19.2.19",
     "@angular/forms": "^19.2.18",
     "@angular/material": "^19.0.0",
     "@angular/platform-browser": "^19.2.18",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.2.0",
     "@angular/cli": "^19.0.0",
-    "@angular/compiler-cli": "^19.2.18",
+    "@angular/compiler-cli": "^19.2.19",
     "@types/jasmine": "~5.1.4",
     "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.4.0",
@@ -42,6 +42,7 @@
   "overrides": {
     "gh-pages": "^6.2.0",
     "tar": "^7.5.7",
-    "rollup": ">=4.59.0"
+    "rollup": ">=4.59.0",
+    "serialize-javascript": ">=7.0.3"
   }
 }
