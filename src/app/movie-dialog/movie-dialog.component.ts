@@ -1,5 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Movie Dialog Component
@@ -8,6 +11,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   selector: 'app-movie-dialog',
   templateUrl: './movie-dialog.component.html',
   styleUrls: ['./movie-dialog.component.scss'],
+  standalone: true,
+  imports: [MatButtonModule, MatIconModule, MatDialogModule],
 })
 export class MovieDialogComponent {
   /**

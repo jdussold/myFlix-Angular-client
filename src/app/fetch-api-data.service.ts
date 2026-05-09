@@ -8,9 +8,10 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 // API URL
-const apiUrl = 'https://my-flix-db-jd.herokuapp.com';
+const apiUrl = environment.apiUrl;
 
 /**
  * Injectable service class for fetching API data

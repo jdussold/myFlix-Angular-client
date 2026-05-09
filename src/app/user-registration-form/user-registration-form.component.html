@@ -14,123 +14,134 @@
               formControlName="Username"
               placeholder="Username"
               type="text"
-            />
-            <div
-              class="error-message"
-              *ngIf="
+              />
+              @if (
                 registrationForm.controls['Username'].invalid &&
                 registrationForm.controls['Username'].touched
-              "
-            >
-              <mat-error
-                *ngIf="
-                  registrationForm.controls['Username'].hasError('required')
-                "
-              >
-                Username is required.
-              </mat-error>
-              <mat-error
-                *ngIf="
-                  registrationForm.controls['Username'].hasError('minlength')
-                "
-              >
-                Username must be at least 5 characters long.
-              </mat-error>
-              <mat-error
-                *ngIf="
-                  registrationForm.controls['Username'].hasError('pattern')
-                "
-              >
-                Username must be alphanumeric.
-              </mat-error>
-            </div>
-          </mat-form-field>
-          <mat-form-field class="input-field">
-            <input
-              matInput
-              formControlName="Password"
-              type="password"
-              placeholder="Password"
-            />
-            <div
-              class="error-message"
-              *ngIf="
-                registrationForm.controls['Password'].invalid &&
-                registrationForm.controls['Password'].touched
-              "
-            >
-              <mat-error
-                *ngIf="
-                  registrationForm.controls['Password'].hasError('required')
-                "
-              >
-                Password is required.
-              </mat-error>
-            </div>
-          </mat-form-field>
-          <mat-form-field class="input-field">
-            <input
-              matInput
-              formControlName="Email"
-              type="email"
-              placeholder="Email"
-            />
-            <div
-              class="error-message"
-              *ngIf="
-                registrationForm.controls['Email'].invalid &&
-                registrationForm.controls['Email'].touched
-              "
-            >
-              <mat-error
-                *ngIf="registrationForm.controls['Email'].hasError('required')"
-              >
-                Email is required.
-              </mat-error>
-              <mat-error
-                *ngIf="registrationForm.controls['Email'].hasError('email')"
-              >
-                Email must be a valid email format.
-              </mat-error>
-            </div>
-          </mat-form-field>
-          <mat-form-field class="input-field">
-            <input
-              matInput
-              formControlName="Birthday"
-              type="date"
-              placeholder="Birthday"
-            />
-            <div
-              class="error-message"
-              *ngIf="
-                registrationForm.controls['Birthday'].invalid &&
-                registrationForm.controls['Birthday'].touched
-              "
-            >
-              <mat-error
-                *ngIf="
-                  registrationForm.controls['Birthday'].hasError('required')
-                "
-              >
-                Birthday is required.
-              </mat-error>
-            </div>
-          </mat-form-field>
-        </div>
-      </form>
-    </mat-card-content>
+                ) {
+                <div
+                  class="error-message"
+                  >
+                  @if (
+                    registrationForm.controls['Username'].hasError('required')
+                    ) {
+                    <mat-error
+                      >
+                      Username is required.
+                    </mat-error>
+                  }
+                  @if (
+                    registrationForm.controls['Username'].hasError('minlength')
+                    ) {
+                    <mat-error
+                      >
+                      Username must be at least 5 characters long.
+                    </mat-error>
+                  }
+                  @if (
+                    registrationForm.controls['Username'].hasError('pattern')
+                    ) {
+                    <mat-error
+                      >
+                      Username must be alphanumeric.
+                    </mat-error>
+                  }
+                </div>
+              }
+            </mat-form-field>
+            <mat-form-field class="input-field">
+              <input
+                matInput
+                formControlName="Password"
+                type="password"
+                placeholder="Password"
+                />
+                @if (
+                  registrationForm.controls['Password'].invalid &&
+                  registrationForm.controls['Password'].touched
+                  ) {
+                  <div
+                    class="error-message"
+                    >
+                    @if (
+                      registrationForm.controls['Password'].hasError('required')
+                      ) {
+                      <mat-error
+                        >
+                        Password is required.
+                      </mat-error>
+                    }
+                  </div>
+                }
+              </mat-form-field>
+              <mat-form-field class="input-field">
+                <input
+                  matInput
+                  formControlName="Email"
+                  type="email"
+                  placeholder="Email"
+                  />
+                  @if (
+                    registrationForm.controls['Email'].invalid &&
+                    registrationForm.controls['Email'].touched
+                    ) {
+                    <div
+                      class="error-message"
+                      >
+                      @if (registrationForm.controls['Email'].hasError('required')) {
+                        <mat-error
+                          >
+                          Email is required.
+                        </mat-error>
+                      }
+                      @if (registrationForm.controls['Email'].hasError('email')) {
+                        <mat-error
+                          >
+                          Email must be a valid email format.
+                        </mat-error>
+                      }
+                    </div>
+                  }
+                </mat-form-field>
+                <mat-form-field class="input-field">
+                  <input
+                    matInput
+                    formControlName="Birthday"
+                    type="date"
+                    placeholder="Birthday"
+                    />
+                    @if (
+                      registrationForm.controls['Birthday'].invalid &&
+                      registrationForm.controls['Birthday'].touched
+                      ) {
+                      <div
+                        class="error-message"
+                        >
+                        @if (
+                          registrationForm.controls['Birthday'].hasError('required')
+                          ) {
+                          <mat-error
+                            >
+                            Birthday is required.
+                          </mat-error>
+                        }
+                      </div>
+                    }
+                  </mat-form-field>
+                </div>
+              </form>
+            </mat-card-content>
 
-    <!-- Submit button for user registration -->
-    <mat-card-actions class="center-content">
-      <button
-        mat-raised-button
-        [disabled]="registrationForm.invalid"
-        (click)="registerUser()"
-        class="signup-button"
-      >
-        Sign Up
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+            <!-- Submit button for user registration -->
+            <mat-card-actions class="center-content">
+              <button
+                mat-raised-button
+                [disabled]="registrationForm.invalid"
+                (click)="registerUser()"
+                class="signup-button"
+                >
+                Sign Up
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>

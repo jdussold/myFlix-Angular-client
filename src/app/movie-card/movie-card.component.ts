@@ -5,9 +5,14 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SharedService } from '../shared.service';
 
 /**
@@ -17,6 +22,15 @@ import { SharedService } from '../shared.service';
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
+  standalone: true,
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatProgressSpinnerModule
+],
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];

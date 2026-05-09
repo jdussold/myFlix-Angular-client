@@ -7,12 +7,16 @@
     mat-dialog-content
     class="backdrop"
     [style.background-image]="'url(' + data.backdropImage + ')'"
-  >
+    >
     <div class="scroll-container">
-      <p *ngIf="data.genre">
-        <strong>{{ data.genre }}:</strong> {{ data.message }}
-      </p>
-      <p *ngIf="!data.genre">{{ data.message }}</p>
+      @if (data.genre) {
+        <p>
+          <strong>{{ data.genre }}:</strong> {{ data.message }}
+        </p>
+      }
+      @if (!data.genre) {
+        <p>{{ data.message }}</p>
+      }
     </div>
   </div>
   <!-- An overlay to darken the background -->

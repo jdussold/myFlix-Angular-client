@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
 /**
@@ -11,6 +13,8 @@ import { Router } from '@angular/router';
   selector: 'app-welcome-page',
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatButtonModule],
 })
 export class WelcomePageComponent implements OnInit {
   isDialogOpen: boolean = false;

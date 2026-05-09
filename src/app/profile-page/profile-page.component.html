@@ -7,221 +7,226 @@
     <h1>Profile</h1>
 
     <!-- Profile form for non-editing mode -->
-    <form
-      [formGroup]="profileForm"
-      (ngSubmit)="onSubmit()"
-      *ngIf="!editingProfile"
-    >
-      <!-- Non-Edit Mode Username field -->
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <div class="profile-value">{{ profileForm.value.Username }}</div>
-      </div>
-
-      <!-- Non-Edit Mode Password field -->
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <div class="profile-value">{{ maskedPassword }}</div>
-      </div>
-
-      <!-- Non-Edit Mode Email field -->
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <div class="profile-value">{{ profileForm.value.Email }}</div>
-      </div>
-
-      <!-- Non-Edit Mode Birthday field -->
-      <div class="form-group">
-        <label for="birthday">Birthday:</label>
-        <div class="profile-value">
-          {{ profileForm.value.Birthday | date : "longDate" : "UTC" }}
+    @if (!editingProfile) {
+      <form
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()"
+        >
+        <!-- Non-Edit Mode Username field -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <div class="profile-value">{{ profileForm.value.Username }}</div>
         </div>
-      </div>
-
-      <!-- Non-Edit Mode Buttons section -->
-      <div class="profile-buttons-container">
-        <button
-          type="button"
-          mat-raised-button
-          color="primary"
-          class="edit-profile-button"
-          (click)="editingProfile = true"
-        >
-          Edit Profile
-        </button>
-        <button
-          type="button"
-          mat-raised-button
-          color="warn"
-          (click)="onDelete()"
-        >
-          Delete Account
-        </button>
-      </div>
-    </form>
+        <!-- Non-Edit Mode Password field -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <div class="profile-value">{{ maskedPassword }}</div>
+        </div>
+        <!-- Non-Edit Mode Email field -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <div class="profile-value">{{ profileForm.value.Email }}</div>
+        </div>
+        <!-- Non-Edit Mode Birthday field -->
+        <div class="form-group">
+          <label for="birthday">Birthday:</label>
+          <div class="profile-value">
+            {{ profileForm.value.Birthday | date : "longDate" : "UTC" }}
+          </div>
+        </div>
+        <!-- Non-Edit Mode Buttons section -->
+        <div class="profile-buttons-container">
+          <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            class="edit-profile-button"
+            (click)="editingProfile = true"
+            >
+            Edit Profile
+          </button>
+          <button
+            type="button"
+            mat-raised-button
+            color="warn"
+            (click)="onDelete()"
+            >
+            Delete Account
+          </button>
+        </div>
+      </form>
+    }
 
     <!-- Profile form for editing mode -->
-    <form [formGroup]="profileForm" *ngIf="editingProfile">
-      <!-- Edit Mode Username field -->
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <div class="input-container">
-          <input
-            type="text"
-            id="username"
-            formControlName="Username"
-            (input)="onUsernameChange()"
-            class="input-field"
-          />
-          <div class="warning-container">
-            <div *ngIf="usernameInvalid" class="warning-text">
-              Username must be at least 5 characters long and contain only
-              alphanumeric characters.
+    @if (editingProfile) {
+      <form [formGroup]="profileForm">
+        <!-- Edit Mode Username field -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <div class="input-container">
+            <input
+              type="text"
+              id="username"
+              formControlName="Username"
+              (input)="onUsernameChange()"
+              class="input-field"
+              />
+              <div class="warning-container">
+                @if (usernameInvalid) {
+                  <div class="warning-text">
+                    Username must be at least 5 characters long and contain only
+                    alphanumeric characters.
+                  </div>
+                }
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Edit Mode Password field -->
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <div class="password-container" *ngIf="!editingPassword">
-          <div class="profile-value">{{ maskedPassword }}</div>
-          <mat-icon (click)="togglePasswordEditing()" class="edit-icon"
-            >edit</mat-icon
-          >
-        </div>
-        <div class="input-container" *ngIf="editingPassword">
-          <input
-            type="password"
-            id="password"
-            formControlName="Password"
-            [placeholder]="'Enter new password'"
-            class="input-field"
-          />
-          <div class="warning-container">
-            <div
-              *ngIf="
-                profileForm.get('Password')?.invalid &&
-                profileForm.get('Password')?.touched
-              "
-              class="warning-text"
-            >
-              Password must be at least 5 characters long.
+          <!-- Edit Mode Password field -->
+          <div class="form-group">
+            <label for="password">Password:</label>
+            @if (!editingPassword) {
+              <div class="password-container">
+                <div class="profile-value">{{ maskedPassword }}</div>
+                <mat-icon (click)="togglePasswordEditing()" class="edit-icon"
+                  >edit</mat-icon
+                  >
+                </div>
+              }
+              @if (editingPassword) {
+                <div class="input-container">
+                  <input
+                    type="password"
+                    id="password"
+                    formControlName="Password"
+                    [placeholder]="'Enter new password'"
+                    class="input-field"
+                    />
+                    <div class="warning-container">
+                      @if (
+                        profileForm.get('Password')?.invalid &&
+                        profileForm.get('Password')?.touched
+                        ) {
+                        <div
+                          class="warning-text"
+                          >
+                          Password must be at least 5 characters long.
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+              <!-- Edit Mode Email field -->
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <div class="input-container">
+                  <input
+                    type="email"
+                    id="email"
+                    formControlName="Email"
+                    class="input-field"
+                    />
+                    <div class="warning-container">
+                      @if (
+                        profileForm.get('Email')?.invalid &&
+                        profileForm.get('Email')?.touched
+                        ) {
+                        <div
+                          class="warning-text"
+                          >
+                          Please enter a valid email.
+                        </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <!-- Edit Mode Birthday field -->
+                <div class="form-group">
+                  <label for="birthday">Birthday:</label>
+                  <div class="input-container">
+                    <input
+                      type="date"
+                      id="birthday"
+                      formControlName="Birthday"
+                      class="input-field"
+                      />
+                    </div>
+                  </div>
+                  <!-- Edit Mode Buttons section -->
+                  <div class="buttons-container">
+                    <button
+                      type="button"
+                      mat-raised-button
+                      color="primary"
+                      class="edit-profile-button"
+                      (click)="onSubmit()"
+                      >
+                      Save Changes
+                    </button>
+                    <button
+                      type="button"
+                      mat-raised-button
+                      color="warn"
+                      (click)="editingProfile = false"
+                      >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              }
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Edit Mode Email field -->
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <div class="input-container">
-          <input
-            type="email"
-            id="email"
-            formControlName="Email"
-            class="input-field"
-          />
-          <div class="warning-container">
-            <div
-              *ngIf="
-                profileForm.get('Email')?.invalid &&
-                profileForm.get('Email')?.touched
-              "
-              class="warning-text"
-            >
-              Please enter a valid email.
+            <!-- Favorite movies section -->
+            @if (favoriteMovies.length > 0) {
+              <div>
+                <h2>Favorite Movies</h2>
+                <div class="movie-container">
+                  @for (movie of favoriteMovies; track movie) {
+                    <mat-card class="movie-card">
+                      <img
+                        src="{{ movie.ImagePath }}"
+                        alt="{{ movie.Title }}"
+                        class="movie-image"
+                        />
+                        <div class="movie-card-content">
+                          <mat-card-header>
+                            <mat-card-title class="movie-info">{{
+                              movie.Title
+                            }}</mat-card-title>
+                            <mat-card-subtitle class="movie-director">{{
+                              movie.Director.Name
+                            }}</mat-card-subtitle>
+                          </mat-card-header>
+                          <mat-card-actions class="buttons-container">
+                            <button
+                              mat-button
+                              color="primary"
+                              (click)="openDialog(movie, 'genre')"
+                              >
+                              Genre
+                            </button>
+                            <button
+                              mat-button
+                              color="primary"
+                              (click)="openDialog(movie, 'director')"
+                              >
+                              Director
+                            </button>
+                            <button
+                              mat-button
+                              color="primary"
+                              (click)="openDialog(movie, 'synopsis')"
+                              >
+                              Synopsis
+                            </button>
+                            <mat-icon class="favorite-icon" (click)="toggleFavorite(movie)">
+                              {{ movie.isFavorite ? "favorite" : "favorite_border" }}
+                            </mat-icon>
+                          </mat-card-actions>
+                        </div>
+                      </mat-card>
+                    }
+                  </div>
+                </div>
+              }
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Edit Mode Birthday field -->
-      <div class="form-group">
-        <label for="birthday">Birthday:</label>
-        <div class="input-container">
-          <input
-            type="date"
-            id="birthday"
-            formControlName="Birthday"
-            class="input-field"
-          />
-        </div>
-      </div>
-
-      <!-- Edit Mode Buttons section -->
-      <div class="buttons-container">
-        <button
-          type="button"
-          mat-raised-button
-          color="primary"
-          class="edit-profile-button"
-          (click)="onSubmit()"
-        >
-          Save Changes
-        </button>
-        <button
-          type="button"
-          mat-raised-button
-          color="warn"
-          (click)="editingProfile = false"
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!-- Favorite movies section -->
-  <div *ngIf="favoriteMovies.length > 0">
-    <h2>Favorite Movies</h2>
-    <div class="movie-container">
-      <ng-container *ngFor="let movie of favoriteMovies">
-        <mat-card class="movie-card">
-          <img
-            src="{{ movie.ImagePath }}"
-            alt="{{ movie.Title }}"
-            class="movie-image"
-          />
-          <div class="movie-card-content">
-            <mat-card-header>
-              <mat-card-title class="movie-info">{{
-                movie.Title
-              }}</mat-card-title>
-              <mat-card-subtitle class="movie-director">{{
-                movie.Director.Name
-              }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions class="buttons-container">
-              <button
-                mat-button
-                color="primary"
-                (click)="openDialog(movie, 'genre')"
-              >
-                Genre
-              </button>
-              <button
-                mat-button
-                color="primary"
-                (click)="openDialog(movie, 'director')"
-              >
-                Director
-              </button>
-              <button
-                mat-button
-                color="primary"
-                (click)="openDialog(movie, 'synopsis')"
-              >
-                Synopsis
-              </button>
-              <mat-icon class="favorite-icon" (click)="toggleFavorite(movie)">
-                {{ movie.isFavorite ? "favorite" : "favorite_border" }}
-              </mat-icon>
-            </mat-card-actions>
-          </div>
-        </mat-card>
-      </ng-container>
-    </div>
-  </div>
-</div>
