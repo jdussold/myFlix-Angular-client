@@ -7,8 +7,8 @@ describe('ConfirmPasswordDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ConfirmPasswordDialogComponent],
-    }).compileComponents();
+    imports: [ConfirmPasswordDialogComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(ConfirmPasswordDialogComponent);
     component = fixture.componentInstance;

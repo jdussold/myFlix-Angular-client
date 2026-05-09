@@ -4,7 +4,12 @@
  * This component displays a dialog for confirming password and account deletion.
  */
 import { Component, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -13,6 +18,15 @@ import { throwError } from 'rxjs';
   selector: 'app-confirm-password-dialog',
   templateUrl: './confirm-password-dialog.component.html',
   styleUrls: ['./confirm-password-dialog.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
 })
 export class ConfirmPasswordDialogComponent {
   /** Indicates whether the delete account option is clicked */
