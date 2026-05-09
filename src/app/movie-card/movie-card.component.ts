@@ -5,7 +5,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,14 +24,13 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./movie-card.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
     RouterLink,
     RouterLinkActive,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-  ],
+    MatProgressSpinnerModule
+],
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
