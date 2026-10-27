@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FetchApiDataService } from './fetch-api-data.service';
 import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 
@@ -9,24 +10,32 @@ import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 export class SharedService {
   constructor(
     private fetchApiData: FetchApiDataService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
   ) {}
 
   /**
    * Toggle the favorite status of a movie
    * @param movie - Movie object
+   * @param onRollback - Called if the request fails and the status is restored
    */
-  toggleFavorite(movie: any): void {
+  toggleFavorite(movie: any, onRollback?: () => void): void {
     movie.isFavorite = !movie.isFavorite;
-    if (movie.isFavorite) {
-      this.fetchApiData.addFavoriteMovie(movie._id).subscribe((response) => {
-        console.log(response);
-      });
-    } else {
-      this.fetchApiData.removeFavoriteMovie(movie._id).subscribe((response) => {
-        console.log(response);
-      });
-    }
+    const request = movie.isFavorite
+      ? this.fetchApiData.addFavoriteMovie(movie._id)
+      : this.fetchApiData.removeFavoriteMovie(movie._id);
+
+    request.subscribe({
+      error: () => {
+        movie.isFavorite = !movie.isFavorite;
+        onRollback?.();
+        this.snackBar.open(
+          'Could not update favorites. Please try again.',
+          'OK',
+          { duration: 4000 },
+        );
+      },
+    });
   }
 
   /**

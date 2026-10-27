@@ -212,7 +212,11 @@ export class ProfilePageComponent implements OnInit {
    * @param movie - The movie object
    */
   toggleFavorite(movie: any): void {
-    this.sharedService.toggleFavorite(movie);
+    this.sharedService.toggleFavorite(movie, () => {
+      this.favoriteMovies = [...this.favoriteMovies, movie].sort((a, b) =>
+        a.Title.localeCompare(b.Title)
+      );
+    });
     if (!movie.isFavorite) {
       // Remove the movie card from the favoriteMovies array
       this.favoriteMovies = this.favoriteMovies.filter(

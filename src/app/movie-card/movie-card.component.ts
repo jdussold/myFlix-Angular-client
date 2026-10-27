@@ -29,8 +29,8 @@ import { SharedService } from '../shared.service';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatProgressSpinnerModule
-],
+    MatProgressSpinnerModule,
+  ],
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
@@ -54,7 +54,7 @@ export class MovieCardComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public router: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
   ) {
     this.favoriteMovies = [];
   }
@@ -65,7 +65,6 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     this.getMovies();
     this.getUserFavoriteMovies();
-    this.getFeaturedMovies();
     this.rotateFeaturedMovie();
   }
 
@@ -79,6 +78,7 @@ export class MovieCardComponent implements OnInit {
         this.movies = resp;
         this.genres = this.getGenres();
         this.updateFavoriteStatus();
+        this.pickFeaturedMovie();
       },
       error: (error: any) => {
         console.log(error);
@@ -105,7 +105,7 @@ export class MovieCardComponent implements OnInit {
           // Set the "isFavorite" property for each movie based on the user's favorite movies
           this.movies.forEach((movie) => {
             const foundMovie = this.favoriteMovies.find(
-              (m) => m._id === movie._id
+              (m) => m._id === movie._id,
             );
             if (foundMovie) {
               movie.isFavorite = true;
@@ -125,23 +125,16 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Fetches the featured movies from the API
+   * Picks a random featured movie from the loaded movie list
    */
-  getFeaturedMovies(): void {
-    this.fetchApiData.getAllMovies().subscribe({
-      next: (resp: any[]) => {
-        const featuredMovies = resp.filter(
-          (movie: any) => movie.Featured === true
-        );
-        if (featuredMovies.length > 0) {
-          const randomIndex = Math.floor(Math.random() * featuredMovies.length);
-          this.featuredMovie = featuredMovies[randomIndex];
-        }
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-    });
+  pickFeaturedMovie(): void {
+    const featuredMovies = this.movies.filter(
+      (movie) => movie.Featured === true,
+    );
+    if (featuredMovies.length > 0) {
+      const randomIndex = Math.floor(Math.random() * featuredMovies.length);
+      this.featuredMovie = featuredMovies[randomIndex];
+    }
   }
 
   /**
@@ -150,10 +143,10 @@ export class MovieCardComponent implements OnInit {
   rotateFeaturedMovie(): void {
     setInterval(() => {
       const featuredMovies = this.movies.filter(
-        (movie) => movie.Featured === true
+        (movie) => movie.Featured === true,
       );
       const currentIndex = featuredMovies.findIndex(
-        (movie) => movie === this.featuredMovie
+        (movie) => movie === this.featuredMovie,
       );
       const nextIndex = (currentIndex + 1) % featuredMovies.length;
       this.featuredMovie = featuredMovies[nextIndex];
@@ -192,7 +185,6 @@ export class MovieCardComponent implements OnInit {
    */
   toggleFavorite(movie: any): void {
     this.sharedService.toggleFavorite(movie);
-    movie.isFavorite = !movie.isFavorite; // Toggle the favorite status
 
     if (movie.isFavorite) {
       // Add the movie to the favoriteMovies array
@@ -200,7 +192,7 @@ export class MovieCardComponent implements OnInit {
     } else {
       // Remove the movie from the favoriteMovies array
       this.favoriteMovies = this.favoriteMovies.filter(
-        (favMovie) => favMovie._id !== movie._id
+        (favMovie) => favMovie._id !== movie._id,
       );
     }
   }
